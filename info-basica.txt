@@ -1,0 +1,40 @@
+Clases: Atraccion
+	Usuario
+	Promocion(3 clases una por tipo de promocion?)
+	Sugerencia
+
+Enum: Tipo de Atraccion
+
+Las atracciones tienen:
+	Costo de Visita (int)
+	Tiempo promedio de visita (double)
+	Cupo de Personas diarios (int)
+	Tipo de Atraccion (enum)
+
+Los Usuarios tienen
+	Presupuesto (int)
+	Tiempo Disponible (double)
+	Tipo de Atraccion Preferida (enum)
+
+Las promociones pueden ser:
+	Porcentuales
+	Absolutas
+	A x B
+
+Se prioriza:
+	Ofertas que coincidan con sus intereses en orden:
+	1 : Ofertas
+	2 : Atracciones más caras
+	3 : Que requieren mayor tiempo
+	Ofertas que no coincidan con sus intereses en el mismo orden
+
+Se prohibe:
+	Ofrecer atraccion o promocion que no puede costearse
+	Ofrecer atraccion o promocion que no tenga tiempo
+
+Una vez sugerida el usuario pude aceptar(es definitivo)
+el proceso se repite hasta que no haya disponibilidad, y continua con el procimo usuario
+todo por linea de comandos
+Al finalizar el procesamiento debe guardar un archivo con datos del usuario, su compra, los totales a pagar y el tiempo que deberá invertir en dicha salida.
+
+	
