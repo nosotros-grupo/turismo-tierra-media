@@ -1,14 +1,34 @@
 package tierra_Media;
 
 public class PromocionAxB extends Promocion{
+	
+	
+	public PromocionAxB(int cantidadAtracciones, int costoDeVisita ) {
+		super(cantidadAtracciones, costoDeVisita);
+	}
+
+	@Override
+	public double calcularDescuento() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}
+
+
+
+
+
+//Otro Constructor
+/*
 	public PromocionAxB(Atraccion[] atracciones, Atraccion[] atraccionesPagas) {
-		this.atracciones = atracciones;
+		super();
+		super.atracciones = atracciones;
 		int sumaDeCostos = 0;
 		for(int i = 0; i < atraccionesPagas.length; i++) {
 			sumaDeCostos += atraccionesPagas[i].getCostoDeVisita();
 			}
-		this.costoDeVisita = sumaDeCostos;
+		super.costoDeVisita = sumaDeCostos;
 		
 	}
-
-}
+*/
