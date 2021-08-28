@@ -1,11 +1,11 @@
 package tierra_Media;
 
 public class Atraccion {
-	int costoDeVisita;
+	double costoDeVisita;
 	double tiempoPromedioDeVisita;
 	int cupoDePersonasDiario;
 	Tipo_de_Atraccion tipoDeAtraccion;
-	public Atraccion(int costoDeVisita, double tiempoPromedioDeVisita, int cupoDePersonasDiario,
+	public Atraccion(double costoDeVisita, double tiempoPromedioDeVisita, int cupoDePersonasDiario,
 			Tipo_de_Atraccion tipoDeAtraccion) {
 		super();
 		this.costoDeVisita = costoDeVisita;
@@ -16,7 +16,7 @@ public class Atraccion {
 	public Tipo_de_Atraccion getTipoDeAtraccion() {
 		return this.tipoDeAtraccion;
 	}
-	public int getCostoDeVisita() {
+	public double getCostoDeVisita() {
 		return this.costoDeVisita;
 	}
 }
