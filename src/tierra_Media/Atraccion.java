@@ -20,4 +20,12 @@ public class Atraccion {
 	public double getCostoDeVisita() {
 		return this.costoDeVisita;
 	}
+
+	public double getTiempoPromedioDeVisita() {
+		return tiempoPromedioDeVisita;
+	}
+
+	public int getCupoDePersonasDiario() {
+		return cupoDePersonasDiario;
+	}
 }
