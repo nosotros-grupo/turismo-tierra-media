@@ -5,8 +5,7 @@ public class Atraccion {
 	private double tiempoPromedioDeVisita;
 	private int cupoDePersonasDiario;
 	private Tipo_de_Atraccion tipoDeAtraccion;
-	
-	
+
 	public Atraccion(int costoDeVisita, double tiempoPromedioDeVisita, int cupoDePersonasDiario,
 			Tipo_de_Atraccion tipoDeAtraccion) {
 		this.costoDeVisita = costoDeVisita;
@@ -15,11 +14,10 @@ public class Atraccion {
 		this.tipoDeAtraccion = tipoDeAtraccion;
 	}
 	
-	
 	public Tipo_de_Atraccion getTipoDeAtraccion() {
 		return this.tipoDeAtraccion;
 	}
-	public int getCostoDeVisita() {
+	public double getCostoDeVisita() {
 		return this.costoDeVisita;
 	}
 }
