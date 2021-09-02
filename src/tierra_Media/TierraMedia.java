@@ -5,7 +5,10 @@ import java.io.FileNotFoundException;
 import java.util.LinkedList;
 import java.util.Scanner;
 
+//construi esta clase porque pense que Tierra Media es quien debe saber poder brindar los itinerarios y registrar los usuarios.
+
 public class TierraMedia {
+	//se que esta mal pero es para testear que no este privado pero es para testear
 	LinkedList<Usuario> usuarios;
 	
 	public void registrarUsuarios(String archivo) {

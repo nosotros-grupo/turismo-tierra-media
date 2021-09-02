@@ -20,7 +20,9 @@ public class Atraccion {
 	public double getCostoDeVisita() {
 		return this.costoDeVisita;
 	}
-
+	
+	//agregue getters poque seguramente los necesitemos al momento de calcular los tiempos e itinerarios o simplemente para testear.
+	
 	public double getTiempoPromedioDeVisita() {
 		return tiempoPromedioDeVisita;
 	}

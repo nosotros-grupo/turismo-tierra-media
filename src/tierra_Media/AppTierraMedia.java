@@ -2,11 +2,8 @@ package tierra_Media;
 
 public class AppTierraMedia {
 	
-	
+	//para testeos rapidos
 	
 	public static void main(String[] args) {
-		TierraMedia tierra = new TierraMedia();
-		tierra.registrarUsuarios("usuarios.in");
-		System.out.println(tierra.usuarios.get(0));
 	}
 }
