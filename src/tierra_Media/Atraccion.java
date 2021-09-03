@@ -2,7 +2,7 @@ package tierra_Media;
 
 
 public class Atraccion implements Producto{
-	int costoDeVisita;
+	double costoDeVisita;
 	double tiempoPromedioDeVisita;
 	int cupoDePersonasDiario;
 	Tipo_de_Atraccion tipoDeAtraccion;
