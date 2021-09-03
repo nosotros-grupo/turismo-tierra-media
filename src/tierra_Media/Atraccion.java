@@ -1,6 +1,6 @@
 package tierra_Media;
 
-public class Atraccion {
+public class Atraccion implements Producto{
 	double costoDeVisita;
 	double tiempoPromedioDeVisita;
 	int cupoDePersonasDiario;
@@ -18,5 +18,13 @@ public class Atraccion {
 	}
 	public double getCostoDeVisita() {
 		return this.costoDeVisita;
+	}
+	
+	public double getTiempoPromedioDeVisita() {
+		return tiempoPromedioDeVisita;
+	}
+
+	public int getCupoDePersonasDiario() {
+		return cupoDePersonasDiario;
 	}
 }
