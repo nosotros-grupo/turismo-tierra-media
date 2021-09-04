@@ -13,10 +13,12 @@ public class TierraMedia {
 	//En el main
 	
 	public void registrarUsuarios(String archivo) {
-		usuarios = Lector.leerUsuarios(archivo);
+		LectorUsuarios lU = new LectorUsuarios();
+		usuarios = lU.leerUsuarios(archivo);
 		}
 	public void registrarAtracciones(String archivo) {
-		atracciones = Lector.leerAtracciones(archivo);
+		LectorAtracciones lA = new LectorAtracciones();
+		atracciones = lA.leerAtracciones(archivo);
 	}
 
 	

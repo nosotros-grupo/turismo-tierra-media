@@ -9,7 +9,7 @@ public class AppTierraMedia {
 	
 	public static void main(String[] args) {
 		// Acá iría el funcionamiento del programa haciendo las preguntas y respondiendo
-		Lector lector = new Lector();
+		LectorAtracciones lector = new LectorAtracciones();
 		// Pregunta el nombre del archivo de usuarios
 		// Lee el archivo de usuarios
 		// usuarios = lectorUsuarios.leerUsuarios(archivo);

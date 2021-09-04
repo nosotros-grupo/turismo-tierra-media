@@ -1,23 +1,21 @@
 package tierra_Media;
 
+import java.util.Comparator;
 
-public class Atraccion implements Producto{
+public class Atraccion implements Producto, Comparator<Atraccion>{
 	double costoDeVisita;
 	double tiempoPromedioDeVisita;
 	int cupoDePersonasDiario;
-	Tipo_de_Atraccion tipoDeAtraccion;
+	TipoAtraccion tipoDeAtraccion;
 
 	public Atraccion(int costoDeVisita, double tiempoPromedioDeVisita, int cupoDePersonasDiario,
-			Tipo_de_Atraccion tipoDeAtraccion) {
+			TipoAtraccion tipoDeAtraccion) {
 		this.costoDeVisita = costoDeVisita;
 		this.tiempoPromedioDeVisita = tiempoPromedioDeVisita;
 		this.cupoDePersonasDiario = cupoDePersonasDiario;
 		this.tipoDeAtraccion = tipoDeAtraccion;
 	}
 	
-	public Tipo_de_Atraccion getTipoDeAtraccion() {
-		return this.tipoDeAtraccion;
-	}
 	public double getCostoDeVisita() {
 		return this.costoDeVisita;
 	}
@@ -30,5 +28,16 @@ public class Atraccion implements Producto{
 
 	public int getCupoDePersonasDiario() {
 		return cupoDePersonasDiario;
+	}
+
+	@Override
+	public TipoAtraccion getTipoAtraccion() {
+		return this.tipoDeAtraccion;
+	}
+
+	@Override
+	public int compare(Atraccion o1, Atraccion o2) {
+		
+		return 0;
 	}
 }

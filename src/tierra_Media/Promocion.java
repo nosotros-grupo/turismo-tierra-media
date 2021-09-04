@@ -6,8 +6,8 @@ public abstract class Promocion implements Producto{
 	int costoDeVisita;
 	public Promocion() {	
 	}
-	public Tipo_de_Atraccion getTipoDeAtraccion() {
-		return atracciones[0].getTipoDeAtraccion();
+	public TipoAtraccion getTipoDeAtraccion() {
+		return atracciones[0].getTipoAtraccion();
 	}
 	public Promocion(int cantidadDeAtracciones, int costoDeVisita) {
 		this.atracciones = new Atraccion[cantidadDeAtracciones];
