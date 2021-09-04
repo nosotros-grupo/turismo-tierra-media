@@ -3,9 +3,9 @@ package tierra_Media;
 public class Usuario {
 	private int presupuesto;
 	private double	tiempoDisponible;
-	private Tipo_de_Atraccion tipoPreferidoDeAtraccion; //para no generar confusion con los atributos de Atraccion
+	private TipoAtraccion tipoPreferidoDeAtraccion; //para no generar confusion con los atributos de Atraccion
 	
-	public Usuario(int presupuesto, double tiempoDisponible, Tipo_de_Atraccion tipoDeAtraccion) {
+	public Usuario(int presupuesto, double tiempoDisponible, TipoAtraccion tipoDeAtraccion) {
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.tipoPreferidoDeAtraccion = tipoDeAtraccion;
@@ -21,7 +21,7 @@ public class Usuario {
 		return tiempoDisponible;
 	}
 
-	public Tipo_de_Atraccion getTipoPreferidoDeAtraccion() {
+	public TipoAtraccion getTipoPreferidoDeAtraccion() {
 		return tipoPreferidoDeAtraccion;
 	}
 }
