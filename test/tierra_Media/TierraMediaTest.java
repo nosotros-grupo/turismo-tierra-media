@@ -5,7 +5,7 @@ import static org.junit.Assert.*;
 import org.junit.Test;
 
 public class TierraMediaTest {
-	
+	//Sumar test que fallen
 	@Test
 	public void creaciónDeUsuarios() {
 		Usuario Eowyn = new Usuario(10, 8, Tipo_de_Atraccion.AVENTURA);
