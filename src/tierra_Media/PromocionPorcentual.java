@@ -25,5 +25,12 @@ public class PromocionPorcentual extends Promocion{
 	public double calcularDescuento() {
 		// por hacer
 		return 0;
+	}
+
+
+	@Override
+	public TipoAtraccion getTipoAtraccion() {
+		// TODO Auto-generated method stub
+		return null;
 	};
 }

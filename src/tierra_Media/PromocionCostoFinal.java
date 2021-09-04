@@ -13,4 +13,10 @@ public class PromocionCostoFinal extends Promocion {
 		return 0;
 	}
 
+	@Override
+	public TipoAtraccion getTipoAtraccion() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
