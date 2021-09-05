@@ -1,13 +1,14 @@
 package tierra_Media;
 
 import java.util.LinkedList;
+import java.util.List;
 
 //construi esta clase porque pense que Tierra Media es quien debe saber poder brindar los itinerarios y registrar los usuarios.
 
 public class TierraMedia {
 	//se que esta mal pero es para testear que no este privado pero es para testear
 	LinkedList<Usuario> usuarios;
-	LinkedList<Atraccion> atracciones;
+	List<Atraccion> atracciones;
 	// hacer lista de promociones reemplazando a atracciones como atributo
 	
 	//En el main

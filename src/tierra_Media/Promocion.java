@@ -1,21 +1,29 @@
 package tierra_Media;
 
+import java.util.List;
 
 public abstract class Promocion implements Producto{
-	Atraccion[] atracciones;
-	int costoDeVisita;
-	public Promocion() {	
-	}
-	public TipoAtraccion getTipoDeAtraccion() {
-		return atracciones[0].getTipoAtraccion();
-	}
-	public Promocion(int cantidadDeAtracciones, int costoDeVisita) {
-		this.atracciones = new Atraccion[cantidadDeAtracciones];
-		this.costoDeVisita = costoDeVisita;
-	}
-	public double getCostoDeVisita() {
-		return this.costoDeVisita;
+	protected List<Atraccion> atraccionesEnPromo;
+	
+	public Promocion(Atraccion atraccion) {
+		atraccionesEnPromo.add(atraccion);
 	}
 	
-	public abstract double calcularDescuento();
+	public Promocion() {	
+	}
+	
+	public TipoAtraccion getTipoDeAtraccion() {
+		return atraccionesEnPromo.get(0).getTipoAtraccion();
+	}
+	
+	public double getCostoDeVisita() {
+		double costoDeVisita = 0;
+		int i = 0;
+		while(!atraccionesEnPromo.isEmpty())
+			costoDeVisita += atraccionesEnPromo.get(i).getCostoDeVisita();
+			i++;
+		return costoDeVisita;
+	}
+	
+	public abstract double calcularPrecioFinal();
 }

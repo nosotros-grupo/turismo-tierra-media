@@ -2,13 +2,14 @@ package tierra_Media;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.LinkedList;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class LectorAtracciones {
 	
-	public LinkedList<Atraccion> leerAtracciones(String archivo) {
-		LinkedList<Atraccion> atracciones = new LinkedList<Atraccion>();
+	public List<Atraccion> leerAtracciones(String archivo) {
+		List<Atraccion> atracciones = new ArrayList<Atraccion>();
 		
 		Scanner sc = null;
 		try {
