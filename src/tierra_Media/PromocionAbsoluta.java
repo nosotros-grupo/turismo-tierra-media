@@ -1,27 +1,15 @@
 package tierra_Media;
 
+import java.util.List;
+
 public class PromocionAbsoluta extends Promocion {
 	private int precioFinal;
 	
-	public PromocionAbsoluta(int precio, Atraccion atraccion) {
-		super(atraccion);
+	public PromocionAbsoluta(int precio, List<Atraccion> atracciones) {
+		super(atracciones);
 		this.precioFinal = precio;
 	}
 	
-	public PromocionAbsoluta(int precio, Atraccion a1, Atraccion a2) {
-		super();
-		this.atraccionesEnPromo.add(a1);
-		this.atraccionesEnPromo.add(a2);
-		this.precioFinal = precio;
-	}
-	
-	public PromocionAbsoluta(int precio, Atraccion a1, Atraccion a2, Atraccion a3) {
-		super();
-		this.atraccionesEnPromo.add(a1);
-		this.atraccionesEnPromo.add(a2);
-		this.atraccionesEnPromo.add(a3);
-		this.precioFinal = precio;
-	} 
 
 	@Override
 	public double calcularPrecioFinal() {

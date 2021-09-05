@@ -30,11 +30,12 @@ public class LectorAtracciones {
 	private Atraccion crearAtraccion(Scanner sc) {
 		String linea = sc.nextLine();
 		String datos[] = linea.split(" ");
-		int costoDeVisita = Integer.parseInt(datos[0]);
-		double tiempoPromedioDeVisita = Double.parseDouble(datos[1]);
-		int cupoDePersonasDiario = Integer.parseInt(datos[2]);
-		TipoAtraccion tipoDeAtracción = TipoAtraccion.valueOf(datos[3].toUpperCase());
-		Atraccion atraccion = new Atraccion(costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtracción);
+		String nombre = datos[0];
+		int costoDeVisita = Integer.parseInt(datos[1]);
+		double tiempoPromedioDeVisita = Double.parseDouble(datos[2]);
+		int cupoDePersonasDiario = Integer.parseInt(datos[3]);
+		TipoAtraccion tipoDeAtracción = TipoAtraccion.valueOf(datos[4].toUpperCase());
+		Atraccion atraccion = new Atraccion(nombre, costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtracción);
 		
 		return atraccion;
 	}

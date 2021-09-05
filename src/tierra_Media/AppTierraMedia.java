@@ -1,5 +1,6 @@
 package tierra_Media;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.List;
@@ -14,29 +15,47 @@ public class AppTierraMedia {
 		List<Atraccion> atracciones;
 		LectorAtracciones lectorA = new LectorAtracciones();
 		LectorUsuarios lectorU = new LectorUsuarios();
+		
 		Scanner sc = new Scanner(System.in);
 		
 
 		// Pregunta el nombre del archivo de usuarios
 		// Lee el archivo de usuarios
-		System.out.println("Ingrese nombre de el archivo de usuarios...");
+		System.out.println("Ingrese nombre de el archivo de usuarios...(Enter para el nombre por defecto)");
 		String archivoUsuarios = sc.nextLine();
+		if(archivoUsuarios.equals("")) {
+			archivoUsuarios = "usuarios.in";
+		}		
 		usuarios = lectorU.leerUsuarios(archivoUsuarios);
 		
 		
 		// Pregunta el nombre del archivo de Atracciones
-		System.out.println("Ingrese nombre de el archivo de atracciones...");
+		System.out.println("Ingrese nombre de el archivo de atracciones...(Enter para el nombre por defecto)");
 		String archivoAtracciones= sc.nextLine();
+		if(archivoAtracciones.equals("")) {
+			archivoAtracciones = "atracciones.in";
+		}
 		atracciones = lectorA.leerAtracciones(archivoAtracciones);
 		
 		
 		// Pregunta el nombre del archivo de Promociones
-		System.out.println("Ingrese nombre de el archivo de promociones...");
+		System.out.println("Ingrese nombre de el archivo de promociones...(Enter para el nombre por defecto)");
+		LectorPromociones lectorP = new LectorPromociones(atracciones);
+		String archivoPromociones = sc.nextLine();
+		if(archivoPromociones.equals("")) {
+			archivoPromociones = "promociones.in";
+		}
+		promociones = lectorP.leerPromociones(archivoPromociones);
 		
-		
-		//promociones = lectorPromociones.leerPromociones(archivo)
-		// productos.addAll(atracciones);
-		// productos.addAll(promociones);
+		productos = new LinkedList<Producto>();
+		productos.addAll(atracciones);
+		productos.addAll(promociones);
+		System.out.println("usuarios:");
+		System.out.println(usuarios.toString());
+		System.out.println("Productos");
+		System.out.println(productos.toString());
+		System.out.println("Promociones");
+		System.out.println(promociones.toString());
 		//for(int i = 0;i>usuarios.size();i ++) {
 			// OrdenarProductos ordenarProductos = new OrdenarProductos(usuarios[i], productos)
 			// LinkedList<Producto> productosOrdenados = ordenarProductos.getLlista() 

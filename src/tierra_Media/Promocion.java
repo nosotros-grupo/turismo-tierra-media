@@ -5,8 +5,8 @@ import java.util.List;
 public abstract class Promocion implements Producto{
 	protected List<Atraccion> atraccionesEnPromo;
 	
-	public Promocion(Atraccion atraccion) {
-		atraccionesEnPromo.add(atraccion);
+	public Promocion(List<Atraccion> atracciones) {
+		this.atraccionesEnPromo = atracciones;
 	}
 	
 	public Promocion() {	

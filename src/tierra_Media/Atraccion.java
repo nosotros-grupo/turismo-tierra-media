@@ -3,19 +3,23 @@ package tierra_Media;
 import java.util.Comparator;
 
 public class Atraccion implements Producto, Comparator<Atraccion>{
+	String nombre;
 	double costoDeVisita;
 	double tiempoPromedioDeVisita;
 	int cupoDePersonasDiario;
 	TipoAtraccion tipoDeAtraccion;
 
-	public Atraccion(int costoDeVisita, double tiempoPromedioDeVisita, int cupoDePersonasDiario,
+	public Atraccion(String nombre, int costoDeVisita, double tiempoPromedioDeVisita, int cupoDePersonasDiario,
 			TipoAtraccion tipoDeAtraccion) {
 		this.costoDeVisita = costoDeVisita;
 		this.tiempoPromedioDeVisita = tiempoPromedioDeVisita;
 		this.cupoDePersonasDiario = cupoDePersonasDiario;
 		this.tipoDeAtraccion = tipoDeAtraccion;
+		this.nombre = nombre;
 	}
-	
+	public String getNombre() {
+		return this.nombre;
+	}
 	public double getCostoDeVisita() {
 		return this.costoDeVisita;
 	}

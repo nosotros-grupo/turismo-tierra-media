@@ -5,9 +5,10 @@ import java.util.List;
 public class PromocionAxB extends Promocion{
 	private List<Atraccion> atraccionesBonificadas;
 	
-	public PromocionAxB(Atraccion atraccionPaga, Atraccion atraccionBonificada) {
-		super(atraccionPaga);
-		this.atraccionesBonificadas.add(atraccionBonificada);
+	
+	public PromocionAxB(List<Atraccion> atracciones, List<Atraccion> atraccionesBonificadas) {
+		super(atracciones);
+		this.atraccionesBonificadas = atraccionesBonificadas;
 	}
 	
 	public PromocionAxB(Atraccion ap1, Atraccion ab1, Atraccion ab2) {

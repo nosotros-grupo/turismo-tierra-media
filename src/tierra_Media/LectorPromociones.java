@@ -7,7 +7,10 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class LectorPromociones {
-
+	List<Atraccion> atracciones;
+	public LectorPromociones(List<Atraccion> atracciones) {
+		this.atracciones = atracciones;
+	}
 	public List<Promocion> leerPromociones(String archivo) {
 		List<Promocion> promos = new ArrayList<Promocion>();
 		
@@ -31,27 +34,52 @@ public class LectorPromociones {
 		Promocion promocion = null;
 		String linea = sc.nextLine();
 		String datos[] = linea.split(" ");
-		if(datos[0].toUpperCase() == "PROMOCIONABSOLUTA") {
-			switch(Integer.valueOf(datos[2])) 
-			{
-			case 1: promocion = new PromocionAbsoluta(Integer.valueOf(datos[1]), datos[3]));
-				break;
-			case 2: promocion = new PromocionAbsoluta(Integer.valueOf(datos[1]), datos[3], datos[4]);
-				break;
+		if(datos[0].toUpperCase().equals("PROMOCIONABSOLUTA")) {
+			System.out.println("PROMOCIONABSOLUTA");
+			List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
+			for(int i = 3; i<Integer.valueOf(datos[2]);i++) {
+				for(int i2 = 0; i2 < atracciones.size();i2++ ) {
+					if(datos[i].equals(atracciones.get(i2).getNombre())) {
+						atraccionesIncluidas.add(atracciones.get(i2));
+					}
+				}
 			}
-					
+			promocion = new PromocionAbsoluta(Integer.valueOf(datos[1]), atraccionesIncluidas);
 		}
-		if(datos[0].toUpperCase() == "PROMOCIONAXB") {
-			promocion = new PromocionAxB(null, null);
+		if(datos[0].toUpperCase().equals("PROMOCIONAXB")) {
+			System.out.println("PROMOCIONAXB");
+			List<Atraccion> atraccionesTotales = new ArrayList<Atraccion>();
+			List<Atraccion> atraccionesBonificadas = new ArrayList<Atraccion>();
+			Boolean gratis = false; 
+			for(int i = 1; i < datos.length;i++) {
+					if(datos[i].equals("Gratis")) {gratis=true;}else { 
+					for(int i2 = 0; i2 < atracciones.size();i2++ ) {
+						if(datos[i].equals(atracciones.get(i2).getNombre())) {
+							atraccionesTotales.add(atracciones.get(i2));
+							if(gratis) {
+								atraccionesBonificadas.add(atracciones.get(i2));
+								}
+							}
+						}
+					}
+				}
+			promocion = new PromocionAxB(atraccionesTotales, atraccionesBonificadas);
 		}
-		if(datos[0].toUpperCase() == "PROMOCIONPORCENTUAL") {
-			promocion = new PromocionPorcentual(null, Double.valueOf(datos[1]));
+		if(datos[0].toUpperCase().equals("PROMOCIONPORCENTUAL")) {
+			System.out.println("PROMOCIONPORCENTUAL");
+			List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
+			for(int i = 2; i < datos.length;i++) {
+				for(int i2 = 0; i2 < atracciones.size();i2++ ) {
+					if(datos[i].equals(atracciones.get(i2).getNombre())) {
+						atraccionesIncluidas.add(atracciones.get(i2));
+					}
+				}
+			}
+			int descuento = Integer.valueOf(datos[1]);
+			promocion = new PromocionPorcentual(descuento, atraccionesIncluidas);
 		}
 		return promocion;
-	}
-	
-	public static void main(String[] args) {
-		LectorPromociones lectorPro = new LectorPromociones();
 		
 	}
+	
 }

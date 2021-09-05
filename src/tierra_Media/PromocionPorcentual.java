@@ -1,10 +1,12 @@
 package tierra_Media;
 
+import java.util.List;
+
 public class PromocionPorcentual extends Promocion{
 	private double descuento;
 	
-	public PromocionPorcentual(double descuento, Atraccion atraccion) {
-		super(atraccion);
+	public PromocionPorcentual(double descuento, List<Atraccion> atracciones) {
+		super(atracciones);
 		this.descuento = descuento;
 	}
 	
@@ -36,15 +38,3 @@ public class PromocionPorcentual extends Promocion{
 }
 
 
-//Otro Constructor
-/*
-public PromocionPorcentual(Atraccion[] atracciones, double porcentaje) {
-	super();
-	this.atracciones = atracciones;
-	int sumaDeCostos = 0;
-	for(int i = 0; i < atracciones.length; i++) {
-		sumaDeCostos += atracciones[i].getCostoDeVisita() * (porcentaje/100);
-		}
-	this.costoDeVisita = sumaDeCostos;
-}
-*/
