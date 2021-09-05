@@ -2,6 +2,7 @@ package tierra_Media;
 
 import java.util.LinkedList;
 import java.util.Scanner;
+import java.util.List;
 
 public class AppTierraMedia {
 	static LinkedList<Usuario> usuarios;
@@ -9,12 +10,11 @@ public class AppTierraMedia {
 	//para testeos rapidos
 	
 	public static void main(String[] args) {
-		LinkedList<Promocion> promociones;
-		LinkedList<Atraccion> atracciones;
+		List<Promocion> promociones;
+		List<Atraccion> atracciones;
 		LectorAtracciones lectorA = new LectorAtracciones();
 		LectorUsuarios lectorU = new LectorUsuarios();
 		Scanner sc = new Scanner(System.in);
-		
 		
 
 		// Pregunta el nombre del archivo de usuarios
@@ -24,19 +24,14 @@ public class AppTierraMedia {
 		usuarios = lectorU.leerUsuarios(archivoUsuarios);
 		
 		
-		
 		// Pregunta el nombre del archivo de Atracciones
 		System.out.println("Ingrese nombre de el archivo de atracciones...");
 		String archivoAtracciones= sc.nextLine();
 		atracciones = lectorA.leerAtracciones(archivoAtracciones);
 		
 		
-		
 		// Pregunta el nombre del archivo de Promociones
 		System.out.println("Ingrese nombre de el archivo de promociones...");
-		System.out.println(atracciones.get(0).getCostoDeVisita());
-		System.out.println(usuarios.get(0).getPresupuesto());
-		
 		
 		
 		//promociones = lectorPromociones.leerPromociones(archivo)
