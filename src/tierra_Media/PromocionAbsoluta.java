@@ -3,22 +3,22 @@ package tierra_Media;
 import java.util.List;
 
 public class PromocionAbsoluta extends Promocion {
-	private int precioFinal;
+	private double precioFinal;
 	
-	public PromocionAbsoluta(int precio, List<Atraccion> atracciones) {
+	@Override
+	public String toString() {
+		return "PromocionAbsoluta [precioFinal=" + precioFinal + ", atraccionesEnPromo=" + atraccionesEnPromo + "]";
+	}
+	public PromocionAbsoluta(double precio, List<Atraccion> atracciones) {
 		super(atracciones);
 		this.precioFinal = precio;
 	}
-	
-
-	@Override
-	public double calcularPrecioFinal() {
+	public double getCostoDeVisita() {
 		return this.precioFinal;
 	}
 
-	@Override
-	public TipoAtraccion getTipoAtraccion() {
-		return atraccionesEnPromo.get(0).getTipoAtraccion();
-	}
+
+
+
 
 }

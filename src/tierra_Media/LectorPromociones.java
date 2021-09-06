@@ -37,7 +37,7 @@ public class LectorPromociones {
 		
 		if(datos[0].toUpperCase().equals("PROMOCIONABSOLUTA")) {
 			List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
-			for(int i = 3; i<Integer.valueOf(datos[2]);i++) {
+			for(int i = 3; i<Integer.valueOf(datos[2])+3;i++) {
 				for(int i2 = 0; i2 < atracciones.size();i2++ ) {
 					if(datos[i].equals(atracciones.get(i2).getNombre())) {
 						atraccionesIncluidas.add(atracciones.get(i2));

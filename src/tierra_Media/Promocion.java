@@ -13,17 +13,14 @@ public abstract class Promocion implements Producto{
 	}
 	
 	public TipoAtraccion getTipoDeAtraccion() {
-		return atraccionesEnPromo.get(0).getTipoAtraccion();
+		return atraccionesEnPromo.get(0).getTipoDeAtraccion();
 	}
-	
-	public double getCostoDeVisita() {
-		double costoDeVisita = 0;
-		int i = 0;
-		while(!atraccionesEnPromo.isEmpty())
-			costoDeVisita += atraccionesEnPromo.get(i).getCostoDeVisita();
-			i++;
-		return costoDeVisita;
+	public boolean esPromocion() {
+		return true;
 	}
+	public List<Atraccion> getListaDeAtracciones() {
+		return this.atraccionesEnPromo;
+	}
+
 	
-	public abstract double calcularPrecioFinal();
 }
