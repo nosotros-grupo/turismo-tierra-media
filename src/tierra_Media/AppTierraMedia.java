@@ -21,32 +21,68 @@ public class AppTierraMedia {
 
 		// Pregunta el nombre del archivo de usuarios
 		// Lee el archivo de usuarios
-		System.out.println("Ingrese nombre de el archivo de usuarios...(Enter para el nombre por defecto)");
-		String archivoUsuarios = sc.nextLine();
-		if(archivoUsuarios.equals("")) {
-			archivoUsuarios = "usuarios.in";
-		}		
-		usuarios = lectorU.leerUsuarios(archivoUsuarios);
-		
+
+		while(true) {
+			try{
+				System.out.println("Ingrese nombre de el archivo de usuarios...(Enter para el nombre por defecto)");
+			
+				String archivoUsuarios = sc.nextLine();
+				if(archivoUsuarios.equals("")) {
+					archivoUsuarios = "usuarios.in";
+				}
+				usuarios = lectorU.leerUsuarios(archivoUsuarios);
+				if(usuarios.size()>0) {
+					break;
+				}else {
+					System.out.println("El archivo no contiene usuarios, intente nuevamente");
+				}
+			}catch(NullPointerException e) {
+				System.out.println("El archivo no existe, intente nuevamente");
+			}
+		}
 		
 		// Pregunta el nombre del archivo de Atracciones
-		System.out.println("Ingrese nombre de el archivo de atracciones...(Enter para el nombre por defecto)");
-		String archivoAtracciones= sc.nextLine();
-		if(archivoAtracciones.equals("")) {
-			archivoAtracciones = "atracciones.in";
+		while(true) {
+			try{
+				System.out.println("Ingrese nombre de el archivo de atracciones...(Enter para el nombre por defecto)");
+				String archivoAtracciones= sc.nextLine();
+				if(archivoAtracciones.equals("")) {
+					archivoAtracciones = "atracciones.in";
+				}
+				atracciones = lectorA.leerAtracciones(archivoAtracciones);
+				if(atracciones.size()>0) {
+					break;
+				}else {
+					System.out.println("El archivo no contiene atracciones, intente nuevamente");
+				}
+			}catch(NullPointerException e) {
+				System.out.println("El archivo no existe, intente nuevamente");
+			}
 		}
-		atracciones = lectorA.leerAtracciones(archivoAtracciones);
-		
 		
 		// Pregunta el nombre del archivo de Promociones
-		System.out.println("Ingrese nombre de el archivo de promociones...(Enter para el nombre por defecto)");
-		LectorPromociones lectorP = new LectorPromociones(atracciones);
-		String archivoPromociones = sc.nextLine();
-		if(archivoPromociones.equals("")) {
-			archivoPromociones = "promociones.in";
+		while(true) {
+			try{
+				System.out.println("Ingrese nombre de el archivo de promociones...(Enter para el nombre por defecto, tecla n si no se desean promociones)");
+				LectorPromociones lectorP = new LectorPromociones(atracciones);
+				String archivoPromociones = sc.nextLine();
+				if(archivoPromociones.equals("")) {
+					archivoPromociones = "promociones.in";
+				}
+				if(archivoPromociones.equals("n")) {
+					promociones = null;
+					break;
+				}
+				promociones = lectorP.leerPromociones(archivoPromociones);
+				if(promociones.size()>0) {
+					break;
+				}else {
+					System.out.println("El archivo no contiene promociones, intente nuevamente");
+				}
+			}catch(NullPointerException e) {
+				System.out.println("El archivo no existe, intente nuevamente");
+			}
 		}
-		promociones = lectorP.leerPromociones(archivoPromociones);
-		
 		productos = new LinkedList<Producto>();
 		productos.addAll(atracciones);
 		productos.addAll(promociones);
