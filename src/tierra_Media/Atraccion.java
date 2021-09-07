@@ -1,10 +1,9 @@
 package tierra_Media;
 
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.List;
 
-public class Atraccion implements Producto, Comparator<Atraccion>{
+public class Atraccion implements Producto{
 	String nombre;
 	double costoDeVisita;
 	double tiempoPromedioDeVisita;
@@ -52,11 +51,23 @@ public class Atraccion implements Producto, Comparator<Atraccion>{
 
 
 	@Override
-	public int compare(Atraccion o1, Atraccion o2) {
-		
-		return 0;
+	public int compareTo(Producto o2) {
+		//Primero Ofrece Promociones
+		if(this.esPromocion() && !o2.esPromocion()) {
+			return -1;
+		}else if (!this.esPromocion() && o2.esPromocion()) {
+			return 1;
+		}
+		// si no se da ese caso se prioriza la más maca
+		double diferencia = o2.getCostoDeVisita() - this.getCostoDeVisita();
+		if(diferencia != 0) {
+			return (int) diferencia;
+		}
+		//Si tienen el mismo precio
+		return (int) (o2.getTiempoPromedioDeVisita() - this.getTiempoPromedioDeVisita());
 	}
 	public TipoAtraccion getTipoDeAtraccion() {
 		return this.tipoDeAtraccion;
 	}
+
 }
