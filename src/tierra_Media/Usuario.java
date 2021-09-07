@@ -5,7 +5,7 @@ import java.util.LinkedList;
 public class Usuario {
 	private int presupuesto;
 	private double	tiempoDisponible;
-	private TipoAtraccion tipoPreferidoDeAtraccion; //para no generar confusion con los atributos de Atraccion
+	private TipoAtraccion tipoPreferidoDeAtraccion; 
 	private LinkedList<Atraccion> itinerario = new LinkedList<Atraccion>();
 	
 	public Usuario(int presupuesto, double tiempoDisponible, TipoAtraccion tipoDeAtraccion) {
@@ -17,8 +17,6 @@ public class Usuario {
 	public int getPresupuesto() {
 		return presupuesto;
 	}
-	
-	//agregue getters poque seguramente los necesitemos al momento de calcular los tiempos e itinerarios o simplemente para testear.
 	
 	public double getTiempoDisponible() {
 		return tiempoDisponible;
@@ -38,7 +36,30 @@ public class Usuario {
 		for(int i = 0; i < producto.getListaDeAtracciones().size(); i++) {
 			this.itinerario.add(producto.getListaDeAtracciones().get(i));
 		}
-		
+	}
+	
+	public int getCostoTotalDeVisita() {
+		int costo = 0;
+		for (int i = 0; i < itinerario.size(); i++) {
+			costo += itinerario.get(i).getCostoDeVisita();
+		}
+		return costo;
+	}
+	
+	public double getTiempoTotalDeVisita() {
+		int tiempo = 0;
+		for (int i = 0; i < itinerario.size(); i++) {
+			tiempo += itinerario.get(i).getTiempoPromedioDeVisita();
+		}
+		return tiempo;
+	}
+	
+	public String[] getAtraccionesCompradas() {
+		String[] atraccionesCompradas = new String[itinerario.size()];
+		for (int i = 0; i < itinerario.size(); i++) {
+			atraccionesCompradas[i] = itinerario.get(i).getNombre();
+		}
+		return atraccionesCompradas;
 	}
 
 	public LinkedList<Atraccion> getItinerario() {

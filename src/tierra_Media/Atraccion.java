@@ -4,11 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Atraccion implements Producto{
-	String nombre;
-	double costoDeVisita;
-	double tiempoPromedioDeVisita;
-	int cupoDePersonasDiario;
-	TipoAtraccion tipoDeAtraccion;
+	private String nombre;
+	private double costoDeVisita;
+	private double tiempoPromedioDeVisita;
+	private int cupoDePersonasDiario;
+	private TipoAtraccion tipoDeAtraccion;
 
 	public Atraccion(String nombre, int costoDeVisita, double tiempoPromedioDeVisita, int cupoDePersonasDiario,
 			TipoAtraccion tipoDeAtraccion) {

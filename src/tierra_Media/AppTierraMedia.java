@@ -1,5 +1,6 @@
 package tierra_Media;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
@@ -10,7 +11,7 @@ public class AppTierraMedia {
 	static LinkedList<Producto> productos;
 	//para testeos rapidos
 	
-	public static void main(String[] args) {
+	public static void main(String[] args) throws IOException {
 		List<Promocion> promociones;
 		List<Atraccion> atracciones;
 		LectorAtracciones lectorA = new LectorAtracciones();
@@ -116,5 +117,10 @@ public class AppTierraMedia {
 			// guardar en un archivo su itinerario(creo que esto había que hacer)
 		}
 		sc.close();
+		System.out.println();
+		
+		for (int i = 0; i < usuarios.size(); i++)  {
+			EscritorUsuarios.escribirUsuarios(usuarios.get(i), i);
+		}
 	}
 }
