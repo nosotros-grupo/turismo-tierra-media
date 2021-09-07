@@ -1,0 +1,13 @@
+Sincosto s 2 6 AVENTURA
+SinTiempoPromedioDeVisita 5 s 25 PAISAJE
+CORRECTO 2 2 6 AVENTURa
+SinCupoDePersonasDiario 5 2 3 PAISAJEEspecial
+DoublesEnVezDeInta 2.2 2 2 AVENTURA
+DoublesEnVezDeIntb 2 2 2.2 AVENTURA
+NumerosNegativosa -2 2 6 AVENTURa
+NumerosNegativosb 2 -2 6 AVENTURa
+NumerosNegativosc 2 2 -6 AVENTURa
+
+
+
+

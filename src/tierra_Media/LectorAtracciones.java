@@ -21,7 +21,7 @@ public class LectorAtracciones {
 					atracciones.add(a);
 			}
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Error de lectura");
 		}
 		sc.close();
 		return atracciones;
@@ -30,13 +30,27 @@ public class LectorAtracciones {
 	private Atraccion crearAtraccion(Scanner sc) {
 		String linea = sc.nextLine();
 		String datos[] = linea.split(" ");
-		int costoDeVisita = Integer.parseInt(datos[0]);
-		double tiempoPromedioDeVisita = Double.parseDouble(datos[1]);
-		int cupoDePersonasDiario = Integer.parseInt(datos[2]);
-		TipoAtraccion tipoDeAtracción = TipoAtraccion.valueOf(datos[3].toUpperCase());
-		Atraccion atraccion = new Atraccion(costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtracción);
+		String nombre = datos[0];
+		int columnaLeida = 1;
+		try{
+		int costoDeVisita = Integer.parseInt(datos[1]);
+		columnaLeida ++;
+		double tiempoPromedioDeVisita = Double.parseDouble(datos[2]);
+		columnaLeida ++;
+		int cupoDePersonasDiario = Integer.parseInt(datos[3]);
+		columnaLeida ++;
+		TipoAtraccion tipoDeAtracción = TipoAtraccion.valueOf(datos[4].toUpperCase());
+		Atraccion atraccion = new Atraccion(nombre, costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtracción);
 		
 		return atraccion;
+		}catch(NumberFormatException e){
+			System.out.println(datos[0] + " Contiene el dato " + datos[columnaLeida] + " que no puede ser leido correctamente");
+		}catch(IllegalArgumentException e) {
+			System.out.println(datos[0] + " Contiene el tipo de atraccion " + datos[4] + " que no existe");
+		}catch(ArrayIndexOutOfBoundsException e) {
+			System.out.println(datos[0] + "No contiene todos los datos necesarios");
+		}
+		return null; 
 	}
 }
 

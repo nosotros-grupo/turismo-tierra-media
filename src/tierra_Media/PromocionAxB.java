@@ -5,42 +5,29 @@ import java.util.List;
 public class PromocionAxB extends Promocion{
 	private List<Atraccion> atraccionesBonificadas;
 	
-	public PromocionAxB(Atraccion atraccionPaga, Atraccion atraccionBonificada) {
-		super(atraccionPaga);
-		this.atraccionesBonificadas.add(atraccionBonificada);
-	}
 	
-	public PromocionAxB(Atraccion ap1, Atraccion ab1, Atraccion ab2) {
-		super();
-		this.atraccionesEnPromo.add(ap1);
-		this.atraccionesBonificadas.add(ab1);
-		this.atraccionesBonificadas.add(ab2);
-	}
-	
-	public PromocionAxB(Atraccion ap1, Atraccion ab1, Atraccion ab2, Atraccion ab3) {
-		super();
-		this.atraccionesEnPromo.add(ap1);
-		this.atraccionesBonificadas.add(ab1);
-		this.atraccionesBonificadas.add(ab2);
-		this.atraccionesBonificadas.add(ab3);
+	@Override
+	public String toString() {
+		return "PromocionAxB [atraccionesBonificadas=" + atraccionesBonificadas + ", atraccionesEnPromo="
+				+ atraccionesEnPromo + "]";
 	}
 
-	@Override
-	public double calcularPrecioFinal() {
-		return this.getCostoDeVisita() - this.getCostoDeAtraccionesBonificadas();
+	public PromocionAxB(List<Atraccion> atracciones, List<Atraccion> atraccionesBonificadas) {
+		super(atracciones);
+		this.atraccionesBonificadas = atraccionesBonificadas;
 	}
-
-	@Override
+	
 	public TipoAtraccion getTipoAtraccion() {
-		return atraccionesEnPromo.get(0).getTipoAtraccion();
+		return atraccionesEnPromo.get(0).getTipoDeAtraccion();
 	}
 	
-	private double getCostoDeAtraccionesBonificadas() {
+	public double getCostoDeVisita() {
 		double costoDeVisita = 0;
-		int i = 0;
-		while(!atraccionesBonificadas.isEmpty())
-			costoDeVisita += atraccionesBonificadas.get(i).getCostoDeVisita();
-			i++;
+		for(int i = 0; i<atraccionesEnPromo.size();i++) {
+			if(!atraccionesBonificadas.contains(atraccionesEnPromo.get(i))){
+				costoDeVisita += atraccionesEnPromo.get(i).getCostoDeVisita();
+			}
+		}
 		return costoDeVisita;
 	}
 }

@@ -21,7 +21,7 @@ public class LectorUsuarios {
 					ingresantes.add(u);
 			}
 		} catch (FileNotFoundException e) {
-			e.printStackTrace();
+			System.out.println("Error de lectura ");
 		}
 		sc.close();
 		return ingresantes;
