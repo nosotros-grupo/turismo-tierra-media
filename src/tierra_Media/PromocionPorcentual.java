@@ -12,7 +12,12 @@ public class PromocionPorcentual extends Promocion{
 	
 	@Override
 	public String toString() {
-		return "PromocionPorcentual [descuento=" + descuento + ", atraccionesEnPromo=" + atraccionesEnPromo + "]";
+		String nombreDeAtracciones = "";
+		for(int i = 0 ; i < atraccionesEnPromo.size();i++) {
+			nombreDeAtracciones += atraccionesEnPromo.get(i).getNombre() + " ";
+			
+			}
+		return "Promocion Porcentual, con un costo total de " + this.getCostoDeVisita() + " Monedas de Oro, gracias al descuento de " + descuento + " porciento. Dura aproximadamente " + this.getTiempoPromedioDeVisita() + " horas. Incluye las siguientes atracciones: " + nombreDeAtracciones;
 	}
 
 	public PromocionPorcentual(double descuento, Atraccion a1, Atraccion a2) {
@@ -31,8 +36,11 @@ public class PromocionPorcentual extends Promocion{
 	}
 	
 	public double getCostoDeVisita() {
-		double costo = this.getCostoDeVisita();
-		return costo - costo * descuento;
+		double costo = 0;
+		for(int i = 0; i<atraccionesEnPromo.size();i++) {
+			costo += atraccionesEnPromo.get(i).getCostoDeVisita();
+		}
+		return costo * descuento;
 	}
 
 

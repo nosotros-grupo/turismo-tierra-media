@@ -6,7 +6,7 @@ public class Usuario {
 	private int presupuesto;
 	private double	tiempoDisponible;
 	private TipoAtraccion tipoPreferidoDeAtraccion; //para no generar confusion con los atributos de Atraccion
-	private LinkedList<Atraccion> itinerario;
+	private LinkedList<Atraccion> itinerario = new LinkedList<Atraccion>();
 	
 	public Usuario(int presupuesto, double tiempoDisponible, TipoAtraccion tipoDeAtraccion) {
 		this.presupuesto = presupuesto;
@@ -30,5 +30,18 @@ public class Usuario {
 	
 	public TipoAtraccion getTipoPreferidoDeAtraccion() {
 		return tipoPreferidoDeAtraccion;
+	}
+
+	public void compra(Producto producto) {
+		this.presupuesto -= producto.getCostoDeVisita();
+		this.tiempoDisponible -= producto.getTiempoPromedioDeVisita();
+		for(int i = 0; i < producto.getListaDeAtracciones().size(); i++) {
+			this.itinerario.add(producto.getListaDeAtracciones().get(i));
+		}
+		
+	}
+
+	public LinkedList<Atraccion> getItinerario() {
+		return this.itinerario;
 	}
 }

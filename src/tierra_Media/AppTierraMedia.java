@@ -1,5 +1,6 @@
 package tierra_Media;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.List;
@@ -85,17 +86,35 @@ public class AppTierraMedia {
 		productos = new LinkedList<Producto>();
 		productos.addAll(atracciones);
 		productos.addAll(promociones);
+		Collections.sort(productos);
 		for(int i = 0;i<usuarios.size();i ++) {
-			OrdenarProductos ordenarProductos = new OrdenarProductos(usuarios.get(i), productos);
-			LinkedList<Producto> productosOrdenados = ordenarProductos.getLista();
-			for(int i2 = 0; i2 < productosOrdenados.size(); i2++) {
-				System.out.println("Desea adquirir " + productosOrdenados.get(i2).toString()) + "pulse y para si y n para no");
-				String acepta= sc.nextLine();
+			Usuario usuario = usuarios.get(i);
+			System.out.println("Comenzamos con un nuevo usuario. Saludos");
+			for(int i2 = 0; i2 < productos.size(); i2++) {
+				Producto producto = productos.get(i2);
+				if(producto.getTipoDeAtraccion() == usuario.getTipoPreferidoDeAtraccion() && usuario.getPresupuesto() >= producto.getCostoDeVisita() && usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita() && Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones())){
+					System.out.println("Desea adquirir " + producto.toString() + "pulse y para si y n para no");
+					String acepta= sc.nextLine();
+					if(acepta.equals("y")) {
+						usuario.compra(producto);
+						System.out.println("gracias");
+					}
+				}
 			}
-				// Ofrecer prodcutosOrdenados[n] excepto que sea una atraccion que ya haya sido aceptada en una promocion(o quizas si es una promocion que tiene atracciones que ya haya usado)
+			for(int i2 = 0; i2 < productos.size(); i2++) {
+				Producto producto = productos.get(i2);
+				if(producto.getTipoDeAtraccion() != usuario.getTipoPreferidoDeAtraccion() && usuario.getPresupuesto() >= producto.getCostoDeVisita() && usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita() && Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones())){
+					System.out.println("Desea adquirir " + producto.toString() + " pese a que no es de su preferencia. pulse y para si y n para no");
+					String acepta= sc.nextLine();
+					if(acepta.equals("y")) {
+						usuario.compra(producto);
+						System.out.println("gracias");
+					}
+				}
+			}
+			System.out.println("Gracias por adquirir " + usuario.getItinerario());
 			// guardar en un archivo su itinerario(creo que esto había que hacer)
 		}
-		
-		
+		sc.close();
 	}
 }
