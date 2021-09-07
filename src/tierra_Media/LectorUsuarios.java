@@ -32,8 +32,8 @@ public class LectorUsuarios {
 		String datos[] = lin.split(" ");
 		int presupuesto = Integer.parseInt(datos[0]);
 		double tiempoDisponible = Double.parseDouble(datos[1]);
-		TipoAtraccion tipoDeAtracción = TipoAtraccion.valueOf(datos[2].toUpperCase());
-		Usuario user = new Usuario(presupuesto, tiempoDisponible, tipoDeAtracción);
+		TipoAtraccion tipoDeAtraccion = TipoAtraccion.valueOf(datos[2].toUpperCase());
+		Usuario user = new Usuario(presupuesto, tiempoDisponible, tipoDeAtraccion);
 		
 		return user;
 	}
