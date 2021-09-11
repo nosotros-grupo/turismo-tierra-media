@@ -1,4 +1,4 @@
-package tierra_Media;
+package tierraMedia;
 
 import java.util.ArrayList;
 import java.util.List;

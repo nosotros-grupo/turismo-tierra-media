@@ -1,4 +1,4 @@
-package tierra_Media;
+package tierraMedia;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -11,7 +11,6 @@ public class TierraMedia {
 	List<Atraccion> atracciones;
 	// hacer lista de promociones reemplazando a atracciones como atributo
 	
-	//En el main
 	
 	public void registrarUsuarios(String archivo) {
 		LectorUsuarios lU = new LectorUsuarios();
