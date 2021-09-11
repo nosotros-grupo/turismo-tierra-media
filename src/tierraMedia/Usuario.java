@@ -1,5 +1,6 @@
-package tierra_Media;
+package tierraMedia;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class Usuario {
@@ -60,6 +61,10 @@ public class Usuario {
 			atraccionesCompradas[i] = itinerario.get(i).getNombre();
 		}
 		return atraccionesCompradas;
+	}
+
+	public String getListaAtracciones() {
+		return Arrays.toString(getAtraccionesCompradas()).replace("]", "").replace("[", "") ;
 	}
 
 	public LinkedList<Atraccion> getItinerario() {

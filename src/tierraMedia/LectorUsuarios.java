@@ -1,4 +1,4 @@
-package tierra_Media;
+package tierraMedia;
 
 import java.io.File;
 import java.io.FileNotFoundException;
