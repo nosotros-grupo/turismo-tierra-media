@@ -29,7 +29,7 @@ public class LectorAtracciones {
 	
 	private Atraccion crearAtraccion(Scanner sc) {
 		String linea = sc.nextLine();
-		String datos[] = linea.split(" ");
+		String datos[] = linea.split(",");
 		String nombre = datos[0];
 		int columnaLeida = 1;
 		try{
