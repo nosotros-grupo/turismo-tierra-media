@@ -30,6 +30,12 @@ public class PromocionAxB extends Promocion{
 		}
 		return costoDeVisita;
 	}
+
+	@Override
+	public boolean contiene(Producto p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 }
 
 

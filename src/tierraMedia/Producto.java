@@ -9,6 +9,9 @@ public interface Producto extends Comparable<Producto>{
 	
 	public List<Atraccion> getListaDeAtracciones();
 	public boolean esPromocion();
+	
+	public abstract boolean contiene(Producto p);
+	
 	public double getTiempoPromedioDeVisita();
 	
 }

@@ -43,6 +43,12 @@ public class PromocionPorcentual extends Promocion{
 		return costo * descuento;
 	}
 
+	@Override
+	public boolean contiene(Producto p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 
 }
 

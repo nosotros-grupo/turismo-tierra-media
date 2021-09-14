@@ -16,6 +16,11 @@ public class PromocionAbsoluta extends Promocion {
 	public double getCostoDeVisita() {
 		return this.precioFinal;
 	}
+	@Override
+	public boolean contiene(Producto p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
 
 
 
