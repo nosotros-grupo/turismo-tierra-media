@@ -16,7 +16,12 @@ public class LectorUsuarios {
 			sc = new Scanner(new File(archivo));
 
 			while (sc.hasNext()) {
-				Usuario u = crearUsuario(sc);
+				Usuario u = null;
+				try {
+					u = crearUsuario(sc);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				if (!ingresantes.contains(u))
 					ingresantes.add(u);
 			}

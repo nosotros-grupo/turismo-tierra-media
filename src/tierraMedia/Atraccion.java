@@ -48,7 +48,7 @@ public class Atraccion implements Producto{
 		return cupoDePersonasDiario;
 	}
 	
-
+	
 
 	@Override
 	public int compareTo(Producto o2) {
@@ -69,5 +69,12 @@ public class Atraccion implements Producto{
 	public TipoAtraccion getTipoDeAtraccion() {
 		return this.tipoDeAtraccion;
 	}
-
+	
+	@Override
+	public boolean contiene(Producto p) {
+		if(p.esPromocion()) {
+			return p.contiene(this);
+		}
+		return this.equals(p);
+	}
 }

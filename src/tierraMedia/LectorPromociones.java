@@ -19,7 +19,13 @@ public class LectorPromociones {
 			sc = new Scanner(new File(archivo));
 
 			while (sc.hasNext()) {
-				Promocion p = crearPromocion(sc);
+				Promocion p = null;
+				try {
+					p = crearPromocion(sc);
+				} catch (Exception e) {
+					
+					e.printStackTrace();
+				}
 				if (!promos.contains(p))
 					promos.add(p);
 			}

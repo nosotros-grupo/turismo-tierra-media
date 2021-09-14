@@ -1,19 +1,20 @@
 package tierraMedia;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Scanner;
 import java.util.List;
 
 public class AppTierraMedia {
-	static LinkedList<Usuario> usuarios;
-	static LinkedList<Producto> productos;
+	private static LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
+	private static LinkedList<Producto> productos = new LinkedList<Producto>();
 	//para testeos rapidos
 	
 	public static void main(String[] args) throws IOException {
-		List<Promocion> promociones;
-		List<Atraccion> atracciones;
+		List<Promocion> promociones = new ArrayList<Promocion>();
+		List<Atraccion> atracciones = new ArrayList<Atraccion>();
 		LectorAtracciones lectorA = new LectorAtracciones();
 		LectorUsuarios lectorU = new LectorUsuarios();
 		
@@ -23,7 +24,9 @@ public class AppTierraMedia {
 		// Pregunta el nombre del archivo de usuarios
 		// Lee el archivo de usuarios
 
-		while(true) {
+		
+		//cambiar por alguna condicion que necesitemos
+		while(usuarios.isEmpty()) {
 			try{
 				System.out.println("Ingrese nombre de el archivo de usuarios...(Enter para el nombre por defecto)");
 			
@@ -32,9 +35,7 @@ public class AppTierraMedia {
 					archivoUsuarios = "usuarios.in";
 				}
 				usuarios = lectorU.leerUsuarios(archivoUsuarios);
-				if(usuarios.size()>0) {
-					break;
-				}else {
+				if(usuarios.size()<0) {
 					System.out.println("El archivo no contiene usuarios, intente nuevamente");
 				}
 			}catch(NullPointerException e) {
@@ -43,7 +44,7 @@ public class AppTierraMedia {
 		}
 		
 		// Pregunta el nombre del archivo de Atracciones
-		while(true) {
+		while(atracciones.isEmpty()) {
 			try{
 				System.out.println("Ingrese nombre de el archivo de atracciones...(Enter para el nombre por defecto)");
 				String archivoAtracciones= sc.nextLine();
@@ -51,9 +52,7 @@ public class AppTierraMedia {
 					archivoAtracciones = "atracciones.in";
 				}
 				atracciones = lectorA.leerAtracciones(archivoAtracciones);
-				if(atracciones.size()>0) {
-					break;
-				}else {
+				if(atracciones.size()<0) {
 					System.out.println("El archivo no contiene atracciones, intente nuevamente");
 				}
 			}catch(NullPointerException e) {
@@ -62,7 +61,7 @@ public class AppTierraMedia {
 		}
 		
 		// Pregunta el nombre del archivo de Promociones
-		while(true) {
+		while(promociones.isEmpty()) {
 			try{
 				System.out.println("Ingrese nombre de el archivo de promociones...(Enter para el nombre por defecto, tecla n si no se desean promociones)");
 				LectorPromociones lectorP = new LectorPromociones(atracciones);
@@ -75,9 +74,7 @@ public class AppTierraMedia {
 					break;
 				}
 				promociones = lectorP.leerPromociones(archivoPromociones);
-				if(promociones.size()>0) {
-					break;
-				}else {
+				if(promociones.size()<0) {
 					System.out.println("El archivo no contiene promociones, intente nuevamente");
 				}
 			}catch(NullPointerException e) {
@@ -113,14 +110,13 @@ public class AppTierraMedia {
 					}
 				}
 			}
+			
+			//chequear que no haya atracciones con promociones en comun y que no entren atracciones que ya esten.
+			
 			System.out.println("Gracias por adquirir " + usuario.getItinerario());
-			// guardar en un archivo su itinerario(creo que esto había que hacer)
+			EscritorUsuarios.escribirUsuarios(usuario, i);
 		}
 		sc.close();
 		System.out.println();
-		
-		for (int i = 0; i < usuarios.size(); i++)  {
-			EscritorUsuarios.escribirUsuarios(usuarios.get(i), i);
-		}
 	}
 }

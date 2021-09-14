@@ -16,22 +16,30 @@ public class LectorAtracciones {
 			sc = new Scanner(new File(archivo));
 
 			while (sc.hasNext()) {
-				Atraccion a = crearAtraccion(sc);
+				Atraccion a = null;
+				try {
+					a = crearAtraccion(sc);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
 				if (!atracciones.contains(a))
 					atracciones.add(a);
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("Error de lectura");
-		}
+		} 
 		sc.close();
 		return atracciones;
 		}
+		
 	
+		//crear errorCrearAtraccion
 	private Atraccion crearAtraccion(Scanner sc) {
 		String linea = sc.nextLine();
 		String datos[] = linea.split(",");
 		String nombre = datos[0];
 		int columnaLeida = 1;
+		Atraccion atraccion = null;
 		try{
 		int costoDeVisita = Integer.parseInt(datos[1]);
 		columnaLeida ++;
@@ -40,9 +48,9 @@ public class LectorAtracciones {
 		int cupoDePersonasDiario = Integer.parseInt(datos[3]);
 		columnaLeida ++;
 		TipoAtraccion tipoDeAtraccion = TipoAtraccion.valueOf(datos[4].toUpperCase());
-		Atraccion atraccion = new Atraccion(nombre, costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtraccion);
+		atraccion = new Atraccion(nombre, costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtraccion);
 		
-		return atraccion;
+		
 		}catch(NumberFormatException e){
 			System.out.println(datos[0] + " Contiene el dato " + datos[columnaLeida] + " que no puede ser leido correctamente");
 		}catch(IllegalArgumentException e) {
@@ -50,7 +58,7 @@ public class LectorAtracciones {
 		}catch(ArrayIndexOutOfBoundsException e) {
 			System.out.println(datos[0] + "No contiene todos los datos necesarios");
 		}
-		return null; 
+		return atraccion;
 	}
 }
 
