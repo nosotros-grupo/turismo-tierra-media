@@ -6,11 +6,11 @@ import java.util.LinkedList;
 import java.util.Scanner;
 
 public class LectorUsuarios {
-	
-	
+
 	public LinkedList<Usuario> leerUsuarios(String archivo) {
+
 		LinkedList<Usuario> ingresantes = new LinkedList<Usuario>();
-		
+
 		Scanner sc = null;
 		try {
 			sc = new Scanner(new File(archivo));
@@ -31,15 +31,16 @@ public class LectorUsuarios {
 		sc.close();
 		return ingresantes;
 	}
-	
+
 	private Usuario crearUsuario(Scanner linea) {
 		String lin = linea.nextLine();
 		String datos[] = lin.split(" ");
 		int presupuesto = Integer.parseInt(datos[0]);
 		double tiempoDisponible = Double.parseDouble(datos[1]);
 		TipoAtraccion tipoDeAtraccion = TipoAtraccion.valueOf(datos[2].toUpperCase());
-		Usuario user = new Usuario(presupuesto, tiempoDisponible, tipoDeAtraccion);
-		
+		String nombre = datos[3];
+		Usuario user = new Usuario(presupuesto, tiempoDisponible, tipoDeAtraccion, nombre);
+
 		return user;
 	}
 }
