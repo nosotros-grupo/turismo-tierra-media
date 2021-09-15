@@ -87,33 +87,43 @@ public class AppTierraMedia {
 		Collections.sort(productos);
 		for(int i = 0;i<usuarios.size();i ++) {
 			Usuario usuario = usuarios.get(i);
-			System.out.println("Comenzamos con un nuevo usuario. Saludos");
+			System.out.println("Bienvenido, " + usuarios.get(i).getName() + "!");
 			for(int i2 = 0; i2 < productos.size(); i2++) {
 				Producto producto = productos.get(i2);
-				if(producto.getTipoDeAtraccion() == usuario.getTipoPreferidoDeAtraccion() && usuario.getPresupuesto() >= producto.getCostoDeVisita() && usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita() && Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones())){
-					System.out.println("Desea adquirir " + producto.toString() + "pulse y para si y n para no");
+				if(producto.getTipoDeAtraccion() == usuario.getTipoPreferidoDeAtraccion() 
+						&& usuario.getPresupuesto() >= producto.getCostoDeVisita() 
+						&& usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita() 
+						&& Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones()))
+					{
+					System.out.println("Desea adquirir " + producto.toString() + "?\nPulse S para si, N para no.");
 					String acepta= sc.nextLine();
-					if(acepta.equals("y")) {
+					if(acepta.toUpperCase().equals("S")) {
 						usuario.compra(producto);
-						System.out.println("gracias");
+						System.out.println("Gracias por su compra!\n");
 					}
 				}
 			}
 			for(int i2 = 0; i2 < productos.size(); i2++) {
 				Producto producto = productos.get(i2);
-				if(producto.getTipoDeAtraccion() != usuario.getTipoPreferidoDeAtraccion() && usuario.getPresupuesto() >= producto.getCostoDeVisita() && usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita() && Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones())){
-					System.out.println("Desea adquirir " + producto.toString() + " pese a que no es de su preferencia. pulse y para si y n para no");
+				if(producto.getTipoDeAtraccion() != usuario.getTipoPreferidoDeAtraccion() 
+						&& usuario.getPresupuesto() >= producto.getCostoDeVisita() 
+						&& usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita() 
+						&& Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones()))
+				{
+					System.out.println("Le podemos ofrecer " + producto.toString() + "\nSabemos que no es de su preferencia.\nPulse S para si, N para no.");
 					String acepta= sc.nextLine();
-					if(acepta.equals("y")) {
+					if(acepta.toUpperCase().equals("S")) {
 						usuario.compra(producto);
-						System.out.println("gracias");
+						System.out.println("Gracias por su compra!\n");
 					}
 				}
 			}
 			
 			//chequear que no haya atracciones con promociones en comun y que no entren atracciones que ya esten.
-			
-			System.out.println("Gracias por adquirir " + usuario.getItinerario());
+			if (usuario.getItinerario().isEmpty()) {
+				System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nEsperamos convencerlo la próxima vez!  Saludos!\n\n\n");
+			} else {
+			System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nGracias por adquirir " + usuario.getItinerario());}
 			EscritorUsuarios.escribirUsuarios(usuario, i);
 		}
 		sc.close();

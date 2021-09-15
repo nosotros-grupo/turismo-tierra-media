@@ -39,7 +39,7 @@ public class LectorPromociones {
 	private Promocion crearPromocion(Scanner sc) {
 		Promocion promocion = null;
 		String linea = sc.nextLine();
-		String datos[] = linea.split(" ");
+		String datos[] = linea.split(",");
 		
 		if(datos[0].toUpperCase().equals("PROMOCIONABSOLUTA")) {
 			List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();

@@ -1,13 +1,15 @@
-Moria,10,2,6,Aventura
-Minas Tirith,5,2.5,25,Paisaje
-La Comarca,3,6.5,150,Degustacion
-Mordor,25,3,4,Aventura
-Abismo de Helm,5,2,15,Paisaje
-Lothlórien,35,1,30,Degustacion
-Erebor,12,3,32,Paisaje
-Bosque Negro,3,4,12,Aventura
-Lorien,8,3,8,Paisaje
-Claro del Este,12,1.5,6,Aventura
-Reino del Bosque,22,4,4,Aventura
-Lago Espejo,9,2,24,Degustacion
-Campos Gladios,6,3.5,14,Paisaje
+Mordor,18,3.00,4,Aventura
+Bosque Negro,16,2.50,5,Aventura
+Moria,14,2.00,6,Aventura
+Claro del Este,11,1.50,7,Aventura
+Reino del Bosque,9,1.00,8,Aventura
+Lothlï¿½rien,18,3.00,4,Degustacion
+Lago del Bosque,16,2.50,5,Degustacion
+La Comarca,14,2.00,6,Degustacion
+Vados Gladios,11,1.50,7,Degustacion
+Lago Espejo,9,1.00,8,Degustacion
+Erebor,18,3.00,4,Paisaje
+Abismo de Helm,16,2.50,5,Paisaje
+Minas Tirith,14,2.00,6,Paisaje
+Campos Gladios,11,1.50,7,Paisaje
+Lorien,9,1.00,8,Paisaje
