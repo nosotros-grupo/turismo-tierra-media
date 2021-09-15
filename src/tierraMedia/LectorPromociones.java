@@ -8,6 +8,7 @@ import java.util.Scanner;
 
 public class LectorPromociones {
 	List<Atraccion> atracciones;
+	
 	public LectorPromociones(List<Atraccion> atracciones) {
 		this.atracciones = atracciones;
 	}
@@ -23,7 +24,6 @@ public class LectorPromociones {
 				try {
 					p = crearPromocion(sc);
 				} catch (Exception e) {
-					
 					e.printStackTrace();
 				}
 				if (!promos.contains(p))
@@ -84,9 +84,6 @@ public class LectorPromociones {
 				}else {
 					System.out.println(datos[0] + " no es un tipo de promocion válida");
 					}
-				
-				
-				
 			}
 		}
 		return promocion;

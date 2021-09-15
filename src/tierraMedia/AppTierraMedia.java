@@ -52,6 +52,7 @@ public class AppTierraMedia {
 					archivoAtracciones = "atracciones.in";
 				}
 				atracciones = lectorA.leerAtracciones(archivoAtracciones);
+				System.out.println(atracciones);
 				if(atracciones.size()<0) {
 					System.out.println("El archivo no contiene atracciones, intente nuevamente");
 				}
