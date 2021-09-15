@@ -20,8 +20,27 @@ public class Atraccion implements Producto{
 	}
 	@Override
 	public String toString() {
-		return "Atraccion [nombre=" + nombre + ", costoDeVisita=" + costoDeVisita + ", tiempoPromedioDeVisita="
-				+ tiempoPromedioDeVisita + ", tipoDeAtraccion=" + tipoDeAtraccion + "]";
+		int largoNombre = this.nombre.length();
+		int largoAtracc = this.getTipoDeAtraccion().name().length();
+		int guiones = (80 - largoAtracc - largoNombre - 8) / 2;
+
+//		String respuesta = "\n===============================================================================\n";
+		String respuesta = "\n";
+		for (int i = 0; i < guiones; i++) 
+			respuesta += "=";
+		respuesta += "  " + this.nombre + " (" + this.tipoDeAtraccion + ")  ";
+		for (int i = 0; i < guiones; i++) 
+			respuesta += "=";
+		respuesta += "\n  Precio de lista: " + this.costoDeVisita + " monedas. "
+				+ "--  Tiempo promedio de Visita : " + this.tiempoPromedioDeVisita + " hora";
+		if (this.tiempoPromedioDeVisita > 1)
+			respuesta += "s";
+		respuesta += ".\n\n";
+//		respuesta += "===============================================================================\n\n";
+		
+		return  respuesta;
+		//"Atraccion [nombre=" + nombre + ", costoDeVisita=" + costoDeVisita + ", tiempoPromedioDeVisita="
+			//	+ tiempoPromedioDeVisita + ", tipoDeAtraccion=" + tipoDeAtraccion + "]";
 	}
 	public String getNombre() {
 		return this.nombre;
