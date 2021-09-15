@@ -1,5 +1,47 @@
+<<<<<<< HEAD
 PromocionAbsoluta 200 1 Erebor Mijolnir
 promocionabsoluta 300 2 Mijolnir Erebor
 pRoMoCionAbsOlUTA 400 3 mimama tumama Erebor
 PromocionAxB Erebor Gratis Mijolnir
 PromocionPorcentual 15 Erebor Mijolnir
+=======
+PromocionAbsoluta,24,3,Moria,Bosque Negro,Reino del Bosque,12,Promo-1155,Aventura,5.5,
+PromocionAbsoluta,27,3,Vados Gladios,Lago Espejo,Lago del Bosque,12,Promo-1470,Degustacion,5,
+PromocionAbsoluta,27,3,Mordor,Moria,Bosque Negro,12,Promo-1575,Aventura,7.5,
+PromocionAbsoluta,24,3,Lago Espejo,Lago del Bosque,La Comarca,12,Promo-1617,Degustacion,5.5,
+PromocionAbsoluta,46,4,Mordor,Reino del Bosque,Moria,Bosque Negro,15,Promo-1785,Aventura,8.5,
+PromocionAbsoluta,46,4,Vados Gladios,La Comarca,Lago Espejo,Lago del Bosque,15,Promo-2058,Degustacion,7,
+PromocionAbsoluta,24,3,Campos Gladios,Lorien,Minas Tirith,12,Promo-2079,Paisaje,4.5,
+PromocionAbsoluta,54,5,Moria,Mordor,Bosque Negro,Claro del Este,Reino del Bosque,19,Promo-2100,Aventura,10,
+PromocionAbsoluta,27,3,Erebor,Campos Gladios,Lorien,12,Promo-2541,Paisaje,5.5,
+PromocionAbsoluta,54,5,Lago Espejo,Vados Gladios,Lago del Bosque,Lothlarien,La Comarca,19,Promo-2940,Degustacion,10,
+PromocionAbsoluta,46,4,Erebor,Minas Tirith,Campos Gladios,Lorien,15,Promo-3465,Paisaje,7.5,
+PromocionAbsoluta,54,5,Campos Gladios,Erebor,Lorien,Abismo de Helm,Minas Tirith,19,Promo-4620,Paisaje,10,
+PromocionAxB,Claro del Este,Reino del Bosque,Gratis,Moria,1,Promo-0585,Aventura,22,2,4.5,
+PromocionAxB,Reino del Bosque,Moria,Gratis,Bosque Negro,1,Promo-0715,Aventura,32,2,5.5,
+PromocionAxB,Mordor,Reino del Bosque,Gratis,Moria,1,Promo-0780,Aventura,47,2,6,
+PromocionAxB,Vados Gladios,La Comarca,Gratis,Lago Espejo,1,Promo-0819,Degustacion,47,3,4.5,
+PromocionAxB,La Comarca,Lago Espejo,Gratis,Lago del Bosque,1,Promo-1001,Degustacion,32,3,5.5,
+PromocionAxB,Mordor,Reino del Bosque,Claro del Este,Gratis,Bosque Negro,1,Promo-1040,Aventura,59,3,8,
+PromocionAxB,Lothlarien,La Comarca,Gratis,Lago Espejo,1,Promo-1092,Degustacion,22,3,6,
+PromocionAxB,Minas Tirith,Campos Gladios,Gratis,Lorien,1,Promo-1287,Paisaje,32,2,4.5,
+PromocionAxB,Mordor,Reino del Bosque,Claro del Este,Moria,Gratis,Bosque Negro,1,Promo-1300,Aventura,69,5,
+PromocionAxB,Vados Gladios,La Comarca,Lothlarien,Gratis,Lago del Bosque,1,Promo-1638,Degustacion,59,4,9,
+PromocionAxB,Abismo de Helm,Minas Tirith,Gratis,Campos Gladios,1,Promo-1716,Paisaje,22,2,6,
+PromocionAxB,Vados Gladios,La Comarca,Lothlarien,Lago Espejo,Gratis,Lago del Bosque,1,Promo-1820,Degustacion,69,5,10
+PromocionAxB,Erebor,Minas Tirith,Gratis,Campos Gladios,1,Promo-1859,Paisaje,47,2,6.5,10,
+PromocionAxB,Erebor,Minas Tirith,Abismo de Helm,Gratis,Lorien,1,Promo-2431,Paisaje,59,3,8.5,
+PromocionAxB,Erebor,Minas Tirith,Abismo de Helm,Campos Gladios,Gratis,Lorien,1,Promo-2860,Paisaje,69,5,
+PromocionPorcentual,10,Reino del Bosque,Bosque Negro,Promo-0595,Aventura,22,2,3.5,
+PromocionPorcentual,10,Mordor,Claro del Este,Promo-0765,Aventura,33,2,4.5,
+PromocionPorcentual,20,Claro del Este,Moria,Bosque Negro,Promo-1020,Aventura,21,3,6,
+PromocionPorcentual,10,Vados Gladios,Lothlarien,Promo-1071,Degustacion,33,2,4.5,10,
+PromocionPorcentual,10,La Comarca,Lago del Bosque,Promo-1071,Degustacion,22,2,4.5,
+PromocionPorcentual,15,Mordor,Claro del Este,Moria,Promo-1105,Aventura,36,3,6.5,
+PromocionPorcentual,10,Minas Tirith,Lorien,Promo-1122,Paisaje,22,2,3,
+PromocionPorcentual,15,Vados Gladios,Lothlarien,Lago Espejo,Promo-1309,Degustacion,36,3,5.5,
+PromocionPorcentual,20,Lothlarien,Lago Espejo,Lago del Bosque,Promo-1547,Degustacion,21,3,6.5,
+PromocionPorcentual,20,Abismo de Helm,Campos Gladios,Lorien,Promo-1870,Paisaje,21,3,5,
+PromocionPorcentual,10,Erebor,Abismo de Helm,Promo-2057,Paisaje,33,2,5.5,
+PromocionPorcentual,15,Erebor,Abismo de Helm,Campos Gladios,Promo-2618,Paisaje,36,3,7,
+>>>>>>> 6985441d244cf66857a5045d3c565ffe24ae5315
