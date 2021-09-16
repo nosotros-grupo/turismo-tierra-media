@@ -10,8 +10,7 @@ import java.util.Scanner;
 public class AppTierraMedia {
 	private static LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
 	private static LinkedList<Producto> productos = new LinkedList<Producto>();
-	// para testeos rapidos
-
+	
 	public static void main(String[] args) throws IOException {
 		List<Promocion> promociones = new ArrayList<Promocion>();
 		List<Atraccion> atracciones = new ArrayList<Atraccion>();
@@ -68,16 +67,11 @@ public class AppTierraMedia {
 					archivoAtracciones = "atracciones.in";
 				}
 				atracciones = lectorA.leerAtracciones(archivoAtracciones);
-<<<<<<< HEAD
 				System.out.println(atracciones);
-				if(atracciones.size()<0) {
-					System.out.println("El archivo no contiene atracciones, intente nuevamente");
-=======
 				if(atracciones.isEmpty()) {
 					System.out.println(Color.GREEN_BOLD_BRIGHT);
 					System.out.println("El archivo no contiene atracciones, intente nuevamente..");
 					System.out.print(Color.RESET);
->>>>>>> 6985441d244cf66857a5045d3c565ffe24ae5315
 				}
 			}catch(NullPointerException e) {
 				System.out.println(Color.GREEN_BOLD_BRIGHT);
@@ -124,12 +118,10 @@ public class AppTierraMedia {
 		productos.addAll(atracciones);
 		productos.addAll(promociones);
 		Collections.sort(productos);
-		String teclaContinuar;
-		
 		for(int i = 0;i<usuarios.size();i ++) {
 			Usuario usuario = usuarios.get(i);
 			System.out.print("\n\n\n\n  == Presiona una tecla para continuar ==       ");
-			teclaContinuar = sc.nextLine();
+			sc.nextLine();
 			System.out.print("\n\n");
 			
 			System.out.println("Bienvenido, " + usuarios.get(i).getName() + "!\n\n");

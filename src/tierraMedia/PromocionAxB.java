@@ -29,9 +29,6 @@ public class PromocionAxB extends Promocion {
 		// TODO Auto-generated method stub
 		return false;
 	}
-<<<<<<< HEAD
-}
-=======
 
 	@Override
 	public String toString() {
@@ -62,14 +59,3 @@ public class PromocionAxB extends Promocion {
 //				+ atraccionesEnPromo + "]";
 	}
 }
-
-//Otro Constructor
-/*
- * public PromocionAxB(Atraccion[] atracciones, Atraccion[] atraccionesPagas) {
- * super(); super.atracciones = atracciones; int sumaDeCostos = 0; for(int i =
- * 0; i < atraccionesPagas.length; i++) { sumaDeCostos +=
- * atraccionesPagas[i].getCostoDeVisita(); } super.costoDeVisita = sumaDeCostos;
- * 
- * }
- */
->>>>>>> 6985441d244cf66857a5045d3c565ffe24ae5315

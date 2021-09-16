@@ -7,7 +7,7 @@ import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 public class LectorPromociones {
-	List<Atraccion> atracciones;
+	private List<Atraccion> atracciones;
 	
 	public LectorPromociones(List<Atraccion> atracciones) {
 		this.atracciones = atracciones;

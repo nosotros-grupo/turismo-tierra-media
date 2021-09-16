@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-PromocionAbsoluta 200 1 Erebor Mijolnir
-promocionabsoluta 300 2 Mijolnir Erebor
-pRoMoCionAbsOlUTA 400 3 mimama tumama Erebor
-PromocionAxB Erebor Gratis Mijolnir
-PromocionPorcentual 15 Erebor Mijolnir
-=======
 PromocionAbsoluta,24,3,Moria,Bosque Negro,Reino del Bosque,12,Promo-1155,Aventura,5.5,
 PromocionAbsoluta,27,3,Vados Gladios,Lago Espejo,Lago del Bosque,12,Promo-1470,Degustacion,5,
 PromocionAbsoluta,27,3,Mordor,Moria,Bosque Negro,12,Promo-1575,Aventura,7.5,
@@ -44,4 +37,3 @@ PromocionPorcentual,20,Lothlarien,Lago Espejo,Lago del Bosque,Promo-1547,Degusta
 PromocionPorcentual,20,Abismo de Helm,Campos Gladios,Lorien,Promo-1870,Paisaje,21,3,5,
 PromocionPorcentual,10,Erebor,Abismo de Helm,Promo-2057,Paisaje,33,2,5.5,
 PromocionPorcentual,15,Erebor,Abismo de Helm,Campos Gladios,Promo-2618,Paisaje,36,3,7,
->>>>>>> 6985441d244cf66857a5045d3c565ffe24ae5315
