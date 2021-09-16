@@ -49,4 +49,10 @@ public abstract class Promocion implements Producto {
 		return (int) (o2.getTiempoPromedioDeVisita() - this.getTiempoPromedioDeVisita());
 	}
 
+	@Override
+	public boolean contiene(Producto p) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }

@@ -18,20 +18,15 @@ public class AppTierraMedia {
 		LectorUsuarios lectorU = new LectorUsuarios();
 		
 		Scanner sc = new Scanner(System.in);
-		
 
-		// Pregunta el nombre del archivo de usuarios
-		// Lee el archivo de usuarios
-
-		
-		//cambiar por alguna condicion que necesitemos
 		do {
 			String archivoUsuarios;
 			try{
-				System.out.print(Color.RESET);
-				System.out.print(Color.CYAN_BRIGHT + "Nombre del archivo de " + Color.YELLOW_BRIGHT + "Usuarios"
-						+ Color.CYAN_BRIGHT + "\n    (o " + Color.RED_BOLD_BRIGHT + "\"Enter\"" + Color.CYAN_BRIGHT
-						+ " para el nombre por defecto):");
+//				System.out.print(Color.RESET);
+//				System.out.print(Color.CYAN_BRIGHT + "Nombre del archivo de " + Color.YELLOW_BRIGHT + "Usuarios"
+//						+ Color.CYAN_BRIGHT + "\n    (o " + Color.RED_BOLD_BRIGHT + "\"Enter\"" + Color.CYAN_BRIGHT
+//						+ " para el nombre por defecto):");
+				System.out.print("Nombre del archivo de Usuarios\n    (o \"Enter\" para el nombre por defecto):");
 
 				archivoUsuarios = sc.nextLine();
 				// Toma el archivo por defecto
@@ -40,15 +35,15 @@ public class AppTierraMedia {
 				}
 				usuarios = lectorU.leerUsuarios(archivoUsuarios);
 				if(usuarios.isEmpty()) {
-					System.out.println(Color.GREEN_BOLD_BRIGHT);
+//					System.out.println(Color.GREEN_BOLD_BRIGHT);
 					System.out.println("El archivo no contiene usuarios, intente nuevamente..");
-					System.out.print(Color.RESET);
+//					System.out.print(Color.RESET);
 					archivoUsuarios = "";
 				}
 			} catch (NullPointerException e) {
-				System.out.println(Color.GREEN_BOLD_BRIGHT);
+//				System.out.println(Color.GREEN_BOLD_BRIGHT);
 				System.out.println("El archivo no existe, presione una tecla para volver a intentarlo..");
-				System.out.print(Color.RESET);
+//				System.out.print(Color.RESET);
 				archivoUsuarios = "";
 			}
 		} while(usuarios.isEmpty());
@@ -57,10 +52,11 @@ public class AppTierraMedia {
 		do {
 			String archivoAtracciones;
 			try{
-				System.out.print(Color.RESET);
-				System.out.print(Color.CYAN_BRIGHT + "Nombre del archivo de " + Color.YELLOW_BRIGHT + "Atracciones"
-						+ Color.CYAN_BRIGHT + "\n    (o " + Color.RED_BOLD_BRIGHT + "\"Enter\"" + Color.CYAN_BRIGHT
-						+ " para el nombre por defecto):");
+//				System.out.print(Color.RESET);
+//				System.out.print(Color.CYAN_BRIGHT + "Nombre del archivo de " + Color.YELLOW_BRIGHT + "Atracciones"
+//						+ Color.CYAN_BRIGHT + "\n    (o " + Color.RED_BOLD_BRIGHT + "\"Enter\"" + Color.CYAN_BRIGHT
+//						+ " para el nombre por defecto):");
+				System.out.print("Nombre del archivo de Atracciones\n    (o \"Enter\" para el nombre por defecto):");
 
 				archivoAtracciones = sc.nextLine();
 				if(archivoAtracciones.equals("")) {
@@ -69,14 +65,14 @@ public class AppTierraMedia {
 				atracciones = lectorA.leerAtracciones(archivoAtracciones);
 				System.out.println(atracciones);
 				if(atracciones.isEmpty()) {
-					System.out.println(Color.GREEN_BOLD_BRIGHT);
+//					System.out.println(Color.GREEN_BOLD_BRIGHT);
 					System.out.println("El archivo no contiene atracciones, intente nuevamente..");
-					System.out.print(Color.RESET);
+//					System.out.print(Color.RESET);
 				}
 			}catch(NullPointerException e) {
-				System.out.println(Color.GREEN_BOLD_BRIGHT);
+//				System.out.println(Color.GREEN_BOLD_BRIGHT);
 				System.out.println("El archivo no existe, intente nuevamente..");
-				System.out.print(Color.RESET);
+//				System.out.print(Color.RESET);
 				archivoAtracciones = "";
 			}
 		} while(atracciones.isEmpty());
@@ -85,10 +81,12 @@ public class AppTierraMedia {
 		do {
 			String archivoPromociones;
 			try{
-				System.out.print(Color.CYAN_BRIGHT + "Nombre del archivo de " + Color.YELLOW_BRIGHT + "Promociones"
-						+ Color.CYAN_BRIGHT + "\n    (o " + Color.RED_BOLD_BRIGHT + "\"Enter\"" + Color.CYAN_BRIGHT
-						+ " para el nombre por defecto,\n     o " + Color.RED_BOLD_BRIGHT + "\"*\"" + Color.CYAN_BRIGHT
-						+ " si no se desean agregar Promociones):");
+//				System.out.print(Color.CYAN_BRIGHT + "Nombre del archivo de " + Color.YELLOW_BRIGHT + "Promociones"
+//						+ Color.CYAN_BRIGHT + "\n    (o " + Color.RED_BOLD_BRIGHT + "\"Enter\"" + Color.CYAN_BRIGHT
+//						+ " para el nombre por defecto,\n     o " + Color.RED_BOLD_BRIGHT + "\"*\"" + Color.CYAN_BRIGHT
+//						+ " si no se desean agregar Promociones):");
+				System.out.print("Nombre del archivo de Promociones\n    (o \"Enter\" para el nombre por defecto,\n     "
+						+ "o \" * \" si no se desean agregar Promociones): ");
 
 				LectorPromociones lectorP = new LectorPromociones(atracciones);
 				
@@ -102,14 +100,14 @@ public class AppTierraMedia {
 				}
 				promociones = lectorP.leerPromociones(archivoPromociones);
 				if(promociones.size()<0) {
-					System.out.println(Color.GREEN_BOLD_BRIGHT);
+//					System.out.println(Color.GREEN_BOLD_BRIGHT);
 					System.out.println("El archivo no contiene promociones, intente nuevamente..");
 					archivoPromociones = "";
 				}
 			}catch(NullPointerException e) {
-				System.out.println(Color.GREEN_BOLD_BRIGHT);
+//				System.out.println(Color.GREEN_BOLD_BRIGHT);
 				System.out.println("El archivo no existe, intente nuevamente..");
-				System.out.print(Color.RESET);
+//				System.out.print(Color.RESET);
 				archivoPromociones = "";
 			}
 		} while(promociones.isEmpty());
@@ -162,12 +160,6 @@ public class AppTierraMedia {
 					}
 				}
 			}
-			
-			//chequear que no haya atracciones con promociones en comun y que no entren atracciones que ya esten.
-//			if (usuario.getItinerario().isEmpty()) {
-//				System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nEsperamos convencerlo la próxima vez!  Saludos!\n\n\n");
-//			} else {
-//			System.out.println("\n@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\nGracias por adquirir " + usuario.getItinerario());}
 			EscritorUsuarios.escribirUsuarios(usuario, i);
 		}
 		sc.close();

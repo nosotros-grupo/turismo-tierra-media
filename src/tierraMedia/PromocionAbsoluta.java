@@ -42,7 +42,7 @@ public class PromocionAbsoluta extends Promocion {
 	}
 		int numPromo = (int) numeroPromo;
 		String numeroPromoTxt = String.format("%04d", numPromo);
-		return "\n ####### Promo" + numeroPromoTxt + "  ==  Precio Promocional " 
+		return "\n ####### Promo" + numeroPromoTxt + "(promo ABS)  ==  Precio Promocional " 
 				+ this.precioFinal + " monedas  ==  Incluye:  " + atraccionesEnPromo;
 	}
 }

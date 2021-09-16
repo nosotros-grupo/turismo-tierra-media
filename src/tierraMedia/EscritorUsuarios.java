@@ -7,7 +7,10 @@ import java.io.PrintWriter;
 public class EscritorUsuarios {
 
 	public static void escribirUsuarios(Usuario u, int i) throws IOException {
-		PrintWriter salida = new PrintWriter(new FileWriter("salida" + i + ".out"));
+		String nombreArchivo = u.getName()+".out";
+//		System.out.println(nombreArchivo);
+		
+		PrintWriter salida = new PrintWriter(new FileWriter(nombreArchivo));
 
 		if (u.getCostoTotalDeVisita() > 0) {
 			String frase = "===============================================================================\n  Compro "
@@ -23,8 +26,6 @@ public class EscritorUsuarios {
 			salida.print(frase);
 			System.out.println(frase
 					+ "\n===============================================================================\n\n\n\n\n\n");
-//			salida.print("Usted no ha realizado compras en esta oportunidad, esperamos que en su proxima visita podamos cumplir con sus expectativas o bien puede darle una oportunidad a nuestro parque.");
-//			System.out.println("Usted no ha realizado compras en esta oportunidad, esperamos que en su proxima visita podamos cumplir con sus expectativas o bien puede darle una oportunidad a nuestro parque.");
 		}
 
 		salida.close();

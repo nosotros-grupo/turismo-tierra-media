@@ -35,7 +35,7 @@ public class PromocionPorcentual extends Promocion {
 		String numeroPromoTxt = String.format("%04d", numPromo);
 		int descuentoInt = (int) this.descuento;
 		
-		return "\n ####### Promo" + numeroPromoTxt + "  ==  Precio Promocional " + this.getCostoDeVisita()
+		return "\n ####### Promo" + numeroPromoTxt + " (promo Porc)  ==  Precio Promocional " + this.getCostoDeVisita()
 				+ " monedas (" + descuentoInt + " monedas de descuento)  ==  Incluye:  " + atraccionesEnPromo;
 
 //		String nombreDeAtracciones = "";
