@@ -8,9 +8,9 @@ public class TierraMediaTest {
 	//Sumar test que fallen
 	@Test
 	public void creacionDeUsuarios() {
-		Usuario Eowyn = new Usuario(10, 8, TipoAtraccion.AVENTURA);
-		Usuario Gandalf = new Usuario(100, 5, TipoAtraccion.PAISAJE);
-		Usuario Sam = new Usuario(36, 1, TipoAtraccion.BANQUETE);
+		Usuario Eowyn = new Usuario(10, 8, TipoAtraccion.AVENTURA, "Eowyn");
+		Usuario Gandalf = new Usuario(100, 5, TipoAtraccion.PAISAJE, "Gandalf");
+		Usuario Sam = new Usuario(36, 1, TipoAtraccion.BANQUETE, "Sam");
 		
 		assertEquals(10, Eowyn.getPresupuesto());
 		assertEquals(5, Gandalf.getTiempoDisponible(), 0);

@@ -13,7 +13,7 @@ public class LectorAtracciones {
 		
 		Scanner sc = null;
 		try {
-			sc = new Scanner(new File(archivo));
+			sc = new Scanner(new File(archivo), "Cp1252");
 
 			while (sc.hasNext()) {
 				Atraccion a = null;
@@ -42,11 +42,11 @@ public class LectorAtracciones {
 		Atraccion atraccion = null;
 		try{
 		int costoDeVisita = Integer.parseInt(datos[1]);
-		columnaLeida ++;
+		columnaLeida++;
 		double tiempoPromedioDeVisita = Double.parseDouble(datos[2]);
-		columnaLeida ++;
+		columnaLeida++;
 		int cupoDePersonasDiario = Integer.parseInt(datos[3]);
-		columnaLeida ++;
+		columnaLeida++;
 		TipoAtraccion tipoDeAtraccion = TipoAtraccion.valueOf(datos[4].toUpperCase());
 		atraccion = new Atraccion(nombre, costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtraccion);
 		

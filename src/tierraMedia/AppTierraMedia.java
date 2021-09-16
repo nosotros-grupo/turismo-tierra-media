@@ -10,8 +10,7 @@ import java.util.Scanner;
 public class AppTierraMedia {
 	private static LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
 	private static LinkedList<Producto> productos = new LinkedList<Producto>();
-	// para testeos rapidos
-
+	
 	public static void main(String[] args) throws IOException {
 		List<Promocion> promociones = new ArrayList<Promocion>();
 		List<Atraccion> atracciones = new ArrayList<Atraccion>();
@@ -64,6 +63,7 @@ public class AppTierraMedia {
 					archivoAtracciones = "atracciones.in";
 				}
 				atracciones = lectorA.leerAtracciones(archivoAtracciones);
+				System.out.println(atracciones);
 				if(atracciones.isEmpty()) {
 //					System.out.println(Color.GREEN_BOLD_BRIGHT);
 					System.out.println("El archivo no contiene atracciones, intente nuevamente..");
@@ -116,7 +116,6 @@ public class AppTierraMedia {
 		productos.addAll(atracciones);
 		productos.addAll(promociones);
 		Collections.sort(productos);
-		
 		for(int i = 0;i<usuarios.size();i ++) {
 			Usuario usuario = usuarios.get(i);
 			System.out.print("\n\n\n\n  == Presiona una tecla para continuar ==       ");
