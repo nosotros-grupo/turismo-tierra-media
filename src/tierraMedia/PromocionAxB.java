@@ -26,7 +26,6 @@ public class PromocionAxB extends Promocion {
 
 	@Override
 	public boolean contiene(Producto p) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 
@@ -49,23 +48,10 @@ public class PromocionAxB extends Promocion {
 		default:
 			break;
 		}
-		int numPromo = (int) this.getCostoDeVisita();
-		String numeroPromoTxt = String.format("%04d", numPromo);
-		return "\n ####### Promo" + numeroPromoTxt + "  ==  Precio Promocional " + numPromo
-				+ " monedas  ==  Incluye:  " + atraccionesEnPromo + "  ===     L A      U L T I M A      G R A T I S    !!!!  ===  [\n";
-
-//		
-//		return "PromocionAxB [atraccionesBonificadas=" + atraccionesBonificadas + ", atraccionesEnPromo="
-//				+ atraccionesEnPromo + "]";
+		int numCosto = (int) this.getCostoDeVisita();
+		int numPromoInt = (int) numeroPromo;
+		String numeroPromoTxt = String.format("%04d", numPromoInt);
+		return "\n ####### Promo" + numeroPromoTxt + " (promo AxB)  ==  Precio Promocional " + numCosto
+				+ " monedas  ==  Incluye:  " + atraccionesEnPromo + "     ===     L A     U L T I M A     G R A T I S     ! ! ! !      ===     [\n";
 	}
 }
-
-//Otro Constructor
-/*
- * public PromocionAxB(Atraccion[] atracciones, Atraccion[] atraccionesPagas) {
- * super(); super.atracciones = atracciones; int sumaDeCostos = 0; for(int i =
- * 0; i < atraccionesPagas.length; i++) { sumaDeCostos +=
- * atraccionesPagas[i].getCostoDeVisita(); } super.costoDeVisita = sumaDeCostos;
- * 
- * }
- */
