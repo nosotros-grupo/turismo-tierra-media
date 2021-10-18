@@ -1,0 +1,9 @@
+Cambiar el comparator(para que realize una sola comparacion)
+cambiar las excepciones en atracciones, promociones y usuarios para que sea con throw y no con print line(No se si es necesario con la base de datos)
+Escribir test que prueben fallas
+Cambiar la logica para que atracciones no tenga el metodo getAtracciones
+
+Crear las bases de datos
+Crear las clases para leer la base de datos y crear las atracciones, usuarios y promociones
+Cambiar la escritura de los archivos y clases a la escritura de la base de datos
+

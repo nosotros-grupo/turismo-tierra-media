@@ -145,6 +145,7 @@ public class AppTierraMedia {
 						}
 					} while (!saleDelDo);
 					}}
+			// Cambiar la logica de ordenar las atracciones
 			for (int i2 = 0; i2 < productos.size(); i2++) {
 				Producto producto = productos.get(i2);
 				if(producto.getTipoDeAtraccion() != usuario.getTipoPreferidoDeAtraccion() 
