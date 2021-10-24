@@ -1,0 +1,95 @@
+CREATE TABLE "atracciones" (
+	"nombre"	TEXT NOT NULL,
+	"costoDeVisita"	INTEGER NOT NULL,
+	"tIempoPromedioDeVisita"	NUMERIC NOT NULL,
+	"cupoDePersonasDiario"	INTEGER NOT NULL,
+	"tipoDeAtraccion"	TEXT NOT NULL,
+	PRIMARY KEY("nombre")
+);
+CREATE TABLE "promocionabsoluta" (
+	"precio"	INTEGER NOT NULL,
+	"atraccionesIncluidas"	TEXT NOT NULL UNIQUE
+);
+CREATE TABLE "promocionaxb" (
+	"atraccionespagas"	TEXT NOT NULL,
+	"atraccionesbonificadas"	TEXT NOT NULL,
+	UNIQUE("atraccionespagas","atraccionesbonificadas")
+);
+CREATE TABLE "promocionporcentual" (
+	"atraccionesincluidas"	TEXT NOT NULL UNIQUE,
+	"descuento"	INTEGER NOT NULL
+);
+CREATE TABLE "usuarios" (
+	"presupuesto"	INTEGER NOT NULL,
+	"tiempoDisponible"	NUMERIC NOT NULL,
+	"tipoDeAtraccion"	TEXT NOT NULL,
+	"Nombre"	TEXT NOT NULL,
+	PRIMARY KEY("Nombre")
+);
+
+
+
+INSERT INTO atracciones VALUES('Mordor', '18', '3.00', '4', 'Aventura');
+INSERT INTO atracciones VALUES('Bosque Negro', '16', '2.50', '5', 'Aventura');
+INSERT INTO atracciones VALUES('Moria', '14', '2.00', '6', 'Aventura');
+INSERT INTO atracciones VALUES('Claro del Este', '11', '1.50', '7', 'Aventura');
+INSERT INTO atracciones VALUES('Reino del Bosque', '9', '1.00', '8', 'Aventura');
+INSERT INTO atracciones VALUES('Lothlórien', '18', '3.00', '4', 'Degustacion');
+INSERT INTO atracciones VALUES('Lago del Bosque', '16', '2.50', '5', 'Degustacion');
+INSERT INTO atracciones VALUES('La Comarca', '14', '2.00', '6', 'Degustacion');
+INSERT INTO atracciones VALUES('Vados Gladios', '11', '1.50', '7', 'Degustacion');
+INSERT INTO atracciones VALUES('Lago Espejo', '9', '1.00', '8', 'Degustacion');
+INSERT INTO atracciones VALUES('Erebor', '18', '3.00', '4', 'Paisaje');
+INSERT INTO atracciones VALUES('Abismo de Helm', '16', '2.50', '5', 'Paisaje');
+INSERT INTO atracciones VALUES('Minas Tirith', '14', '2.00', '6', 'Paisaje');
+INSERT INTO atracciones VALUES('Campos Gladios', '11', '1.50', '7', 'Paisaje');
+INSERT INTO atracciones VALUES('Lorien', '9', '1.00', '8', 'Paisaje');
+
+INSERT INTO usuarios VALUES(80, 5, "DEGUSTACION", "Juan");
+INSERT INTO usuarios VALUES(30, 7, "PAISAJE", "Pedro");
+INSERT INTO usuarios VALUES(50, 6, "AVENTURA", "María");
+INSERT INTO usuarios VALUES(99, 2, "PAISAJE", "Alicia");
+INSERT INTO usuarios VALUES(12, 9, "DEGUSTACION", "Ana");
+INSERT INTO usuarios VALUES(40, 4, "AVENTURA", "Tito");
+
+INSERT INTO promocionabsoluta VALUES(24,"Moria|Bosque Negro|Reino del Bosque");
+INSERT INTO promocionabsoluta VALUES(27,"Vados Gladios|Lago Espejo|Lago del Bosque");
+INSERT INTO promocionabsoluta VALUES(27,"Mordor|Moria|Bosque Negro");
+INSERT INTO promocionabsoluta VALUES(24,"Lago Espejo|Lago del Bosque|La Comarca");
+INSERT INTO promocionabsoluta VALUES(46,"Mordor|Reino del Bosque|Moria|Bosque Negro");
+INSERT INTO promocionabsoluta VALUES(46,"Vados Gladios|La Comarca|Lago Espejo|Lago del Bosque");
+INSERT INTO promocionabsoluta VALUES(24,"Campos Gladios|Lorien|Minas Tirith");
+INSERT INTO promocionabsoluta VALUES(54,"Moria|Mordor|Bosque Negro|Claro del Este|Reino del Bosque");
+INSERT INTO promocionabsoluta VALUES(27,"Erebor|Campos Gladios|Lorien");
+INSERT INTO promocionabsoluta VALUES(54,"Lago Espejo|Vados Gladios|Lago del Bosque|Lothlarien|La Comarca");
+INSERT INTO promocionabsoluta VALUES(46,"Erebor|Minas Tirith|Campos Gladios|Lorien");
+INSERT INTO promocionabsoluta VALUES(54,"Campos Gladios|Erebor|Lorien|Abismo de Helm|Minas Tirith");
+
+INSERT INTO promocionaxb VALUES("Claro del Este|Reino del Bosque","Moria");
+INSERT INTO promocionaxb VALUES("Reino del Bosque|Moria","Bosque Negro");
+INSERT INTO promocionaxb VALUES("Mordor|Reino del Bosque","Moria");
+INSERT INTO promocionaxb VALUES("Vados Gladios|La Comarca","Lago Espejo");
+INSERT INTO promocionaxb VALUES("La Comarca|Lago Espejo","Lago del Bosque");
+INSERT INTO promocionaxb VALUES("Mordor|Reino del Bosque|Claro del Este","Bosque Negro");
+INSERT INTO promocionaxb VALUES("Lothlarien|La Comarca","Lago Espejo");
+INSERT INTO promocionaxb VALUES("Minas Tirith|Campos Gladios","Lorien");
+INSERT INTO promocionaxb VALUES("Mordor|Reino del Bosque|Claro del Este|Moria","Bosque Negro");
+INSERT INTO promocionaxb VALUES("Vados Gladios|La Comarca|Lothlarien","Lago del Bosque");
+INSERT INTO promocionaxb VALUES("Abismo de Helm|Minas Tirith","Campos Gladios");
+INSERT INTO promocionaxb VALUES("Vados Gladios|La Comarca|Lothlarien|Lago Espejo","Lago del Bosque");
+INSERT INTO promocionaxb VALUES("Erebor|Minas Tirith","Campos Gladios");
+INSERT INTO promocionaxb VALUES("Erebor|Minas Tirith|Abismo de Helm","Lorien");
+INSERT INTO promocionaxb VALUES("Erebor|Minas Tirith|Abismo de Helm|Campos Gladios","Lorien");
+
+INSERT INTO promocionporcentual VALUES("Reino del Bosque|Bosque Negro",10);
+INSERT INTO promocionporcentual VALUES("Mordor|Claro del Este",10);
+INSERT INTO promocionporcentual VALUES("Claro del Este|Moria|Bosque Negro",20);
+INSERT INTO promocionporcentual VALUES("Vados Gladios|Lothlarien",10);
+INSERT INTO promocionporcentual VALUES("La Comarca|Lago del Bosque",10);
+INSERT INTO promocionporcentual VALUES("Mordor|Claro del Este|Moria",15);
+INSERT INTO promocionporcentual VALUES("Minas Tirith|Lorien",10);
+INSERT INTO promocionporcentual VALUES("Vados Gladios|Lothlarien|Lago Espejo",15);
+INSERT INTO promocionporcentual VALUES("Lothlarien|Lago Espejo|Lago del Bosque",20);
+INSERT INTO promocionporcentual VALUES("Abismo de Helm|Campos Gladios|Lorien",20);
+INSERT INTO promocionporcentual VALUES("Erebor|Abismo de Helm",10);
+INSERT INTO promocionporcentual VALUES("Erebor|Abismo de Helm|Campos Gladios",15);

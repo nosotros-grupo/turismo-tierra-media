@@ -69,7 +69,7 @@ public class PromocionPorcentual extends Promocion {
 		for (int i = 0; i < atraccionesEnPromo.size(); i++) {
 			costo += atraccionesEnPromo.get(i).getCostoDeVisita();
 		}
-		return costo * descuento;
+		return costo - (costo * (descuento/100));
 	}
 
 	@Override

@@ -1,13 +1,15 @@
-Sincosto s 2 6 AVENTURA
-SinTiempoPromedioDeVisita 5 s 25 PAISAJE
-CORRECTO 2 2 6 AVENTURa
-SinCupoDePersonasDiario 5 2 3 PAISAJEEspecial
-DoublesEnVezDeInta 2.2 2 2 AVENTURA
-DoublesEnVezDeIntb 2 2 2.2 AVENTURA
-NumerosNegativosa -2 2 6 AVENTURa
-NumerosNegativosb 2 -2 6 AVENTURa
-NumerosNegativosc 2 2 -6 AVENTURa
-
-
-
-
+Mordor,dieciocho,3.00,4,Aventura
+Bosque Negro,16,2.50,5,Aventura
+Moria,14,2.00,6,Aventura
+Claro del Este,11,1.50,7,Aventura
+Reino del Bosque,9,1.00,8,Aventura
+Lothl�rien,18,3.00,4,Degustacion
+Lago del Bosque,16,2.50,5,Degustacion
+La Comarca,14,2.00,6,Degustacion
+Vados Gladios,11,1.50,7,Degustacion
+Lago Espejo,9,1.00,8,Degustacion
+Erebor,18,3.00,4,Paisaje
+Abismo de Helm,16,2.50,5,Paisaje
+Minas Tirith,14,2.00,6,Paisaje
+Campos Gladios,11,1.50,7,Paisaje
+Lorien,9,1.00,8,Paisaje

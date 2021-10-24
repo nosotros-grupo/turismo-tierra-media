@@ -34,18 +34,18 @@ public class TierraMediaTest {
 		TierraMedia tierra = new TierraMedia();
 		tierra.registrarUsuarios("usuarios.in");
 		
-		assertEquals(TipoAtraccion.BANQUETE, tierra.usuarios.get(0).getTipoPreferidoDeAtraccion());
-		assertEquals(4, tierra.usuarios.get(1).getTiempoDisponible(), 0);
-		assertEquals(12, tierra.usuarios.get(2).getPresupuesto());
+		assertEquals(TipoAtraccion.DEGUSTACION, tierra.usuarios.get(0).getTipoPreferidoDeAtraccion());
+		assertEquals(7, tierra.usuarios.get(1).getTiempoDisponible(), 0);
+		assertEquals(50, tierra.usuarios.get(2).getPresupuesto());
 	}
 	
 	@Test
 	public void lecturaDeAtracciones() {
 		TierraMedia tierra = new TierraMedia();
 		tierra.registrarAtracciones("atracciones.in");
-		
 		assertEquals(TipoAtraccion.AVENTURA, tierra.atracciones.get(0).getTipoDeAtraccion());
-		assertEquals(5, tierra.atracciones.get(1).getCostoDeVisita(), 0);
+		assertEquals(16, tierra.atracciones.get(1).getCostoDeVisita(), 0);
 		assertEquals(2.5, tierra.atracciones.get(1).getTiempoPromedioDeVisita(), 0.001);
 	}
+
 }
