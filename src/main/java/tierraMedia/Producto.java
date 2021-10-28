@@ -18,4 +18,6 @@ public interface Producto extends Comparable<Producto>{
 	
 	public void disminuirCupo();
 	
+	public boolean tieneCupo();
+	
 }

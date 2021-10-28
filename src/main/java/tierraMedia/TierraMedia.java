@@ -20,6 +20,5 @@ public class TierraMedia {
 		LectorAtracciones lA = new LectorAtracciones();
 		atracciones = lA.leerAtracciones(archivo);
 	}
-
 	
 }

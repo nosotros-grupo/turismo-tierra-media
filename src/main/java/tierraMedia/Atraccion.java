@@ -96,4 +96,8 @@ public class Atraccion implements Producto {
 		}
 		return this.equals(p);
 	}
+
+	public boolean tieneCupo() {
+		return cupoDePersonasDiario > 0;
+	}
 }

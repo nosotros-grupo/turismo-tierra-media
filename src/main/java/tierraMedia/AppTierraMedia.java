@@ -20,7 +20,7 @@ import dao.UsuariosDAO;
 public class AppTierraMedia {
 	private static LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
 	private static LinkedList<Producto> productos = new LinkedList<Producto>();
-
+	
 	// app principal
 	public static void main(String[] args) throws IOException, SQLException {
 		List<Promocion> promociones = new ArrayList<Promocion>();
@@ -38,49 +38,49 @@ public class AppTierraMedia {
 		productos.addAll(atracciones);
 		productos.addAll(promociones);
 		Collections.sort(productos);
-
+		
+		
 		for (int i = 0; i < usuarios.size(); i++) {
 			Usuario usuario = usuarios.get(i);
 			System.out.print("\n\n\n\n  == Presiona una tecla para continuar ==       ");
 			sc.nextLine();
 			System.out.print("\n\n");
-
+			
 			System.out.println("Bienvenido, " + usuarios.get(i).getName() + "!\n\n");
-			for (int i2 = 0; i2 < productos.size(); i2++) {
-				Producto producto = productos.get(i2);
-				if (producto.getTipoDeAtraccion() == usuario.getTipoPreferidoDeAtraccion()
-						&& usuario.getPresupuesto() >= producto.getCostoDeVisita()
-						&& usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita()
-						&& Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones())) {
+			for (int j = 0; j < productos.size(); j++) {
+				Producto producto = productos.get(j);
+				if (esPrimeraOpcion(producto, usuario)) {
 					System.out.println("Desea adquirir " + producto.toString() + "?");
-					boolean saleDelDo = false;
-					do {
 						System.out.println("Pulse S para si, N para no.");
-						String acepta = sc.nextLine();
-						if (acepta.toUpperCase().equals("S")) {
+						String respuesta = sc.nextLine();
+						while(!esRespuestaAceptable(respuesta)) {
+							System.out.println("\n\nNo ha ingresado una respuesta procesable.\nRecuerde S para Si, N para no.");
+							respuesta = sc.nextLine();
+						}
+						if (respuesta.toUpperCase().equals("S")) {
 							usuario.compra(producto);
 							System.out.println("Gracias por su compra!\n");
-							saleDelDo = true;
-						} else if (acepta.toUpperCase().equals("N")) {
+							
+						} else if (respuesta.toUpperCase().equals("N")) {
 							System.out.println("De acuerdo!\n");
-							saleDelDo = true;
 						}
-					} while (!saleDelDo);
+					}
 				}
-			}
-			// Cambiar la logica de ordenar las atracciones
-			for (int i2 = 0; i2 < productos.size(); i2++) {
-				Producto producto = productos.get(i2);
-				if (producto.getTipoDeAtraccion() != usuario.getTipoPreferidoDeAtraccion()
-						&& usuario.getPresupuesto() >= producto.getCostoDeVisita()
-						&& usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita()
-						&& Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones())) {
+			for (int j = 0; j < productos.size(); j++) {
+				Producto producto = productos.get(j);
+				if (esOpcionAlternativa(producto, usuario)) {
 					System.out.println("Le podemos ofrecer " + producto.toString()
 							+ "\nSabemos que no es de su preferencia.\nPulse S para si, N para no.");
-					String acepta = sc.nextLine();
-					if (acepta.toUpperCase().equals("S")) {
+					String respuesta = sc.nextLine();
+					while(!esRespuestaAceptable(respuesta)) {
+						System.out.println("No ha ingresado una respuesta procesable.\n Recuerde S para Si, N para no.");
+						respuesta = sc.nextLine();
+					}
+					if (respuesta.toUpperCase().equals("S")) {
 						usuario.compra(producto);
 						System.out.println("Gracias por su compra!\n");
+					} else if (respuesta.toUpperCase().equals("N")) {
+						System.out.println("De acuerdo!\n");
 					}
 				}
 			}
@@ -90,5 +90,25 @@ public class AppTierraMedia {
 		AtraccionesDAO.escribirAtracciones(atracciones);
 		sc.close();
 		System.out.println();
+	}
+	
+	public static boolean esPrimeraOpcion(Producto producto, Usuario usuario) {
+		return producto.getTipoDeAtraccion() == usuario.getTipoPreferidoDeAtraccion()
+				&& usuario.getPresupuesto() >= producto.getCostoDeVisita()
+				&& usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita()
+				&& Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones())
+				&& producto.tieneCupo();
+	}
+	
+	public static boolean esOpcionAlternativa(Producto producto, Usuario usuario) {
+		return producto.getTipoDeAtraccion() != usuario.getTipoPreferidoDeAtraccion()
+				&& usuario.getPresupuesto() >= producto.getCostoDeVisita()
+				&& usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita()
+				&& Collections.disjoint(usuario.getItinerario(), producto.getListaDeAtracciones())
+				&& producto.tieneCupo();
+	}
+	
+	public static boolean esRespuestaAceptable(String respuesta) {
+		return respuesta.toUpperCase().equals("S") || respuesta.toUpperCase().equals("N");
 	}
 }

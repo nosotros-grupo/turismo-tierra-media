@@ -27,7 +27,17 @@ public abstract class Promocion implements Producto {
 	public boolean esPromocion() {
 		return true;
 	}
-
+	
+	public boolean tieneCupo() {
+		boolean cupo = false;
+		for (Atraccion atraccion : atraccionesEnPromo) {
+			if (atraccion.tieneCupo()) {
+				cupo = true;
+			} 
+		}return cupo;
+	}
+	
+	
 	public List<Atraccion> getListaDeAtracciones() {
 		return this.atraccionesEnPromo;
 	}
