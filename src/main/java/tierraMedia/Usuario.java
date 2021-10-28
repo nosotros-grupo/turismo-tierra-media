@@ -6,19 +6,25 @@ import java.util.LinkedList;
 public class Usuario {
 	private int presupuesto;
 	private double tiempoDisponible;
+	private int id;
 	private TipoAtraccion tipoPreferidoDeAtraccion; 
 	private LinkedList<Atraccion> itinerario = new LinkedList<Atraccion>();
 	private String name;
 	
-	public Usuario(int presupuesto, double tiempoDisponible, TipoAtraccion tipoDeAtraccion, String nombre) {
+	public Usuario(int presupuesto, double tiempoDisponible, TipoAtraccion tipoDeAtraccion, String nombre, int id) {
 		this.presupuesto = presupuesto;
 		this.tiempoDisponible = tiempoDisponible;
 		this.tipoPreferidoDeAtraccion = tipoDeAtraccion;
 		this.name = nombre;
+		this.id = id;
 	}
 	
 	public int getPresupuesto() {
 		return presupuesto;
+	}
+	
+	public int getId() {
+		return this.id;
 	}
 	
 	public double getTiempoDisponible() {
@@ -32,13 +38,14 @@ public class Usuario {
 	public TipoAtraccion getTipoPreferidoDeAtraccion() {
 		return tipoPreferidoDeAtraccion;
 	}
-
+	
+	
 	public void compra(Producto producto) {
 		this.presupuesto -= producto.getCostoDeVisita();
 		this.tiempoDisponible -= producto.getTiempoPromedioDeVisita();
 		producto.disminuirCupo();
 		for(int i = 0; i < producto.getListaDeAtracciones().size(); i++) {
-			this.itinerario.add(producto.getListaDeAtracciones().get(i));
+				this.itinerario.add(producto.getListaDeAtracciones().get(i));
 		}
 	}
 	

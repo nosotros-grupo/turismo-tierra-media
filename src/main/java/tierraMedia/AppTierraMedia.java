@@ -7,8 +7,10 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.TreeMap;
 
 import dao.AtraccionesDAO;
+import dao.ItinerariosDAO;
 import dao.PromocionesDAO;
 import dao.UsuariosDAO;
 
@@ -20,16 +22,18 @@ import dao.UsuariosDAO;
 public class AppTierraMedia {
 	private static LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
 	private static LinkedList<Producto> productos = new LinkedList<Producto>();
-	
+
 	// app principal
 	public static void main(String[] args) throws IOException, SQLException {
 		List<Promocion> promociones = new ArrayList<Promocion>();
 		List<Atraccion> atracciones = new ArrayList<Atraccion>();
-
+		TreeMap<Integer, Atraccion> itinerarios = ItinerariosDAO.findAll();
+		
 		Scanner sc = new Scanner(System.in);
 
 		// se traen los datos a las listas desde la DB
 		usuarios.addAll(UsuariosDAO.findAll());
+		cargarItinerarios(itinerarios);
 		atracciones.addAll(AtraccionesDAO.findAll());
 		promociones.addAll(PromocionesDAO.findAll(atracciones));
 
@@ -84,15 +88,22 @@ public class AppTierraMedia {
 					}
 				}
 			}
-			UsuariosDAO.escribirUsuario(usuario);
+			UsuariosDAO.actualizarUsuarios(usuario);
+			//ItinerariosDAO.actualizarItinerarios(usuario);
 			EscritorUsuarios.escribirUsuariosTxt(usuario, i);
 		}
-		AtraccionesDAO.escribirAtracciones(atracciones);
+		AtraccionesDAO.actualizarAtracciones(atracciones);
 		sc.close();
 		System.out.println();
 	}
+
+	private static void cargarItinerarios(TreeMap<Integer, Atraccion> itinerarios) {
+		for (Usuario u : usuarios) {
+			UsuariosDAO.cargarItinerario(u, itinerarios);
+		};
+	}
 	
-	public static boolean esPrimeraOpcion(Producto producto, Usuario usuario) {
+	private static boolean esPrimeraOpcion(Producto producto, Usuario usuario) {
 		return producto.getTipoDeAtraccion() == usuario.getTipoPreferidoDeAtraccion()
 				&& usuario.getPresupuesto() >= producto.getCostoDeVisita()
 				&& usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita()
@@ -100,7 +111,7 @@ public class AppTierraMedia {
 				&& producto.tieneCupo();
 	}
 	
-	public static boolean esOpcionAlternativa(Producto producto, Usuario usuario) {
+	private static boolean esOpcionAlternativa(Producto producto, Usuario usuario) {
 		return producto.getTipoDeAtraccion() != usuario.getTipoPreferidoDeAtraccion()
 				&& usuario.getPresupuesto() >= producto.getCostoDeVisita()
 				&& usuario.getTiempoDisponible() >= producto.getTiempoPromedioDeVisita()
@@ -108,7 +119,7 @@ public class AppTierraMedia {
 				&& producto.tieneCupo();
 	}
 	
-	public static boolean esRespuestaAceptable(String respuesta) {
+	private static boolean esRespuestaAceptable(String respuesta) {
 		return respuesta.toUpperCase().equals("S") || respuesta.toUpperCase().equals("N");
 	}
 }

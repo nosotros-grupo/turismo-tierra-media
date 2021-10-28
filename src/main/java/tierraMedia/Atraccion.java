@@ -5,18 +5,20 @@ import java.util.List;
 
 public class Atraccion implements Producto {
 	private String nombre;
+	private int id;
 	private double costoDeVisita;
 	private double tiempoPromedioDeVisita;
 	private int cupoDePersonasDiario;
 	private TipoAtraccion tipoDeAtraccion;
 
 	public Atraccion(String nombre, int costoDeVisita, double tiempoPromedioDeVisita, int cupoDePersonasDiario,
-			TipoAtraccion tipoDeAtraccion) {
+			TipoAtraccion tipoDeAtraccion, int id) {
 		this.costoDeVisita = costoDeVisita;
 		this.tiempoPromedioDeVisita = tiempoPromedioDeVisita;
 		this.cupoDePersonasDiario = cupoDePersonasDiario;
 		this.tipoDeAtraccion = tipoDeAtraccion;
 		this.nombre = nombre;
+		this.id = id;
 	}
 
 	@Override
@@ -57,9 +59,13 @@ public class Atraccion implements Producto {
 		atracciones.add(this);
 		return atracciones;
 	}
+	
+	public int getId() {
+		return this.id;
+	}
 
 	public double getTiempoPromedioDeVisita() {
-		return tiempoPromedioDeVisita;
+		return this.tiempoPromedioDeVisita;
 	}
 	
 	public void disminuirCupo() {

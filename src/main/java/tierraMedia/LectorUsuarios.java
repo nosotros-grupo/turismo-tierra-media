@@ -39,7 +39,8 @@ public class LectorUsuarios {
 		double tiempoDisponible = Double.parseDouble(datos[1]);
 		TipoAtraccion tipoDeAtraccion = TipoAtraccion.valueOf(datos[2].toUpperCase());
 		String nombre = datos[3];
-		Usuario user = new Usuario(presupuesto, tiempoDisponible, tipoDeAtraccion, nombre);
+		int id = Integer.parseInt(datos[4]);
+		Usuario user = new Usuario(presupuesto, tiempoDisponible, tipoDeAtraccion, nombre, id);
 
 		return user;
 	}

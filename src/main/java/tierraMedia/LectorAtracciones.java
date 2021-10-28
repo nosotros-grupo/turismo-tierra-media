@@ -48,7 +48,8 @@ public class LectorAtracciones {
 		int cupoDePersonasDiario = Integer.parseInt(datos[3]);
 		columnaLeida++;
 		TipoAtraccion tipoDeAtraccion = TipoAtraccion.valueOf(datos[4].toUpperCase());
-		atraccion = new Atraccion(nombre, costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtraccion);
+		int id = Integer.parseInt(datos[5]);
+		atraccion = new Atraccion(nombre, costoDeVisita, tiempoPromedioDeVisita, cupoDePersonasDiario, tipoDeAtraccion, id);
 		
 		
 		}catch(NumberFormatException e){

@@ -39,7 +39,7 @@ public class PromocionesDAO {
 		while (resultados.next()) {
 			promociones.add(toPromocionAxB(resultados, listaAtracciones));
 		}
-
+		conn.close();
 		return promociones;
 
 	}
