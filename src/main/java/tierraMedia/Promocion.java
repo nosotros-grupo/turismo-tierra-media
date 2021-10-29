@@ -27,27 +27,27 @@ public abstract class Promocion implements Producto {
 	public boolean esPromocion() {
 		return true;
 	}
-	
+
 	public boolean tieneCupo() {
 		boolean cupo = false;
 		for (Atraccion atraccion : atraccionesEnPromo) {
 			if (atraccion.tieneCupo()) {
 				cupo = true;
-			} 
-		}return cupo;
+			}
+		}
+		return cupo;
 	}
-	
-	
+
 	public List<Atraccion> getListaDeAtracciones() {
 		return this.atraccionesEnPromo;
 	}
-	
+
 	public void disminuirCupo() {
 		for (int i = 0; i < atraccionesEnPromo.size(); i++) {
 			atraccionesEnPromo.get(i).disminuirCupo();
 		}
 	}
-	
+
 	public int compareTo(Producto o2) {
 		// Primero Ofrece Promociones
 		if (this.esPromocion() && !o2.esPromocion()) {
@@ -65,7 +65,6 @@ public abstract class Promocion implements Producto {
 	}
 
 	public boolean contiene(Producto p) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

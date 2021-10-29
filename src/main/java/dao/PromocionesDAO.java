@@ -14,25 +14,41 @@ import tierraMedia.Promocion;
 import tierraMedia.PromocionAbsoluta;
 import tierraMedia.PromocionAxB;
 import tierraMedia.PromocionPorcentual;
+import tierraMedia.Usuario;
 
 public class PromocionesDAO {
 
 	public static LinkedList<Promocion> findAll(List<Atraccion> listaAtracciones) throws SQLException {
+		
+		// se recuperan las promociones absolutas desde la BD
 		String sql = "SELECT * FROM promocionabsoluta";
 		Connection conn = ConnectionProvider.getConnection();
 		PreparedStatement statement = conn.prepareStatement(sql);
 		ResultSet resultados = statement.executeQuery();
 
+//		LinkedList<Usuario> usuarios = new LinkedList<Usuario>();
+//		while (resultados.next()) {
+//			Usuario userTemp = toUser(resultados);
+//			Gl.usuarioMap.put(resultados.getInt(5), userTemp);
+//			usuarios.add(userTemp);
+//		}
+//		conn.close();
+//		return usuarios;
+
 		LinkedList<Promocion> promociones = new LinkedList<Promocion>();
 		while (resultados.next()) {
 			promociones.add(toPromocionAbsoluta(resultados, listaAtracciones));
 		}
+
+		// se recuperan las promociones porcentuales desde la BD
 		sql = "SELECT * FROM promocionporcentual";
 		statement = conn.prepareStatement(sql);
 		resultados = statement.executeQuery();
 		while (resultados.next()) {
 			promociones.add(toPromocionPorcentual(resultados, listaAtracciones));
 		}
+
+		// se recuperan las promociones AxB desde la BD
 		sql = "SELECT * FROM promocionaxb";
 		statement = conn.prepareStatement(sql);
 		resultados = statement.executeQuery();
