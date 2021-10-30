@@ -24,7 +24,8 @@ public class ItinerariosDAO {
 		Connection conn = ConnectionProvider.getConnection();
 		PreparedStatement statement = conn.prepareStatement(sql);
 		ResultSet resultados = statement.executeQuery();
-
+		
+		// TreeMap<Integer, LinkedList<Atraccion>> itinerarios = new TreeMap<Integer, LinkedList<Atraccion>>();
 		while (resultados.next()) {
 			// cada resultado se compone de id_atraccion, id_usuario
 			// se convierten en Atraccion, Usuario
