@@ -3,6 +3,16 @@ package tierraMedia;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @param nombre
+ * @param costoDeVisita
+ * @param tiempoPromedioDeVisita
+ * @param cupoDePersonasDiario
+ * @param tipoDeAtraccion
+ * @param id
+ * 
+ * @see getListaDeAtracciones
+ */
 public class Atraccion implements Producto {
 	private String nombre;
 	private int id;
@@ -59,7 +69,7 @@ public class Atraccion implements Producto {
 		atracciones.add(this);
 		return atracciones;
 	}
-	
+
 	public int getId() {
 		return this.id;
 	}
@@ -67,11 +77,11 @@ public class Atraccion implements Producto {
 	public double getTiempoPromedioDeVisita() {
 		return this.tiempoPromedioDeVisita;
 	}
-	
+
 	public void disminuirCupo() {
 		cupoDePersonasDiario -= 1;
 	}
-	
+
 	public int getCupoDePersonasDiario() {
 		return cupoDePersonasDiario;
 	}

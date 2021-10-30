@@ -27,13 +27,13 @@ public class AppTierraMedia {
 	public static void main(String[] args) throws IOException, SQLException {
 		List<Promocion> promociones = new ArrayList<Promocion>();
 		List<Atraccion> atracciones = new ArrayList<Atraccion>();
-		TreeMap<Integer, Atraccion> itinerarios = ItinerariosDAO.findAll();
+		TreeMap<Integer, LinkedList<Atraccion>> itinerarios = ItinerariosDAO.findAll();
 		
 		Scanner sc = new Scanner(System.in);
 
 		// se traen los datos a las listas desde la DB
 		usuarios.addAll(UsuariosDAO.findAll());
-		cargarItinerarios(itinerarios);
+//		cargarItinerarios(itinerarios);
 		atracciones.addAll(AtraccionesDAO.findAll());
 		promociones.addAll(PromocionesDAO.findAll(atracciones));
 
@@ -97,11 +97,11 @@ public class AppTierraMedia {
 		System.out.println();
 	}
 
-	private static void cargarItinerarios(TreeMap<Integer, Atraccion> itinerarios) {
-		for (Usuario u : usuarios) {
-			UsuariosDAO.cargarItinerario(u, itinerarios);
-		};
-	}
+//	private static void cargarItinerarios(TreeMap<Integer, Atraccion> itinerarios) {
+//		for (Usuario u : usuarios) {
+//			UsuariosDAO.cargarItinerario(u, itinerarios);
+//		};
+//	}
 	
 	private static boolean esPrimeraOpcion(Producto producto, Usuario usuario) {
 		return producto.getTipoDeAtraccion() == usuario.getTipoPreferidoDeAtraccion()
