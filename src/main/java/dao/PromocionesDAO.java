@@ -80,7 +80,7 @@ public class PromocionesDAO {
 				atracciones.add(i);
 			}
 		}
-		return new PromocionAbsoluta(resultados.getInt(1), atracciones);
+		return new PromocionAbsoluta(resultados.getInt(1), atracciones, resultados.getString(4));
 	}
 
 	private static PromocionPorcentual toPromocionPorcentual(ResultSet resultados, List<Atraccion> listaAtracciones)

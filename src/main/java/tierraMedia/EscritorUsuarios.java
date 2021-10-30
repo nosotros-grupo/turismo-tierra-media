@@ -6,10 +6,10 @@ import java.io.PrintWriter;
 
 public class EscritorUsuarios {
 
-	public static void escribirUsuariosTxt(Usuario u, int i) throws IOException {
-		String nombreArchivo = u.getName()+".out";
+	public static void escribirUsuariosTxt(Usuario u) throws IOException {
+		String nombreArchivo = u.getName() + ".out";
 //		System.out.println(nombreArchivo);
-		
+
 		PrintWriter salida = new PrintWriter(new FileWriter(nombreArchivo));
 
 		if (u.getCostoTotalDeVisita() > 0) {

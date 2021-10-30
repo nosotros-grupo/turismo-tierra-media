@@ -33,23 +33,41 @@ public class Atraccion implements Producto {
 
 	@Override
 	public String toString() {
-		int largoNombre = this.nombre.length();
-		int largoAtracc = this.getTipoDeAtraccion().name().length();
-		int guiones = (80 - largoAtracc - largoNombre - 8) / 2;
+//		int largoNombre = this.nombre.length();
+//		int largoAtracc = this.getTipoDeAtraccion().name().length();
+//		int guiones = (80 - largoAtracc - largoNombre - 8) / 2;
+//		;
+//		for (int i = 0; i < guiones; i++)
+//			respuesta += "=";
+//		respuesta += "  " + this.nombre + " (" + this.tipoDeAtraccion + ")  ";
+//		for (int i = 0; i < guiones; i++)
+//			respuesta += "=";
+//		respuesta += "\n  Precio lista: " + (int) this.costoDeVisita + " monedas. " + "--  Tiempo prom. de Visita : "
+//				+ this.tiempoPromedioDeVisita + " hora";
+//		if (this.tiempoPromedioDeVisita > 1)
+//			respuesta += "s";
+//		respuesta += ".\n";
 
-		String respuesta = "\n";
-		for (int i = 0; i < guiones; i++)
-			respuesta += "=";
-		respuesta += "  " + this.nombre + " (" + this.tipoDeAtraccion + ")  ";
-		for (int i = 0; i < guiones; i++)
-			respuesta += "=";
-		respuesta += "\n  Precio lista: " + (int) this.costoDeVisita + " monedas. " + "--  Tiempo prom. de Visita : "
-				+ this.tiempoPromedioDeVisita + " hora";
-		if (this.tiempoPromedioDeVisita > 1)
-			respuesta += "s";
-		respuesta += ".\n";
+		Integer costoMonedas = (int) this.costoDeVisita;
+		return "\n   == " + this.nombre + " (" + costoMonedas + " monedas // Dur. aprox.: "
+				+ tiempoAstring(this.tiempoPromedioDeVisita) + ") == ";
+	}
 
-		return respuesta;
+	private String tiempoAstring(double horas) {
+		String salida = "";
+		Integer intHora = (int) horas;
+		double doubleDecHora = 60 * (10 * horas - 10 * intHora) / 10;
+		Integer decHora = (int) doubleDecHora;
+		if (decHora == 0) {
+			if (horas <= 1) {
+				salida = intHora.toString() + "h";
+			} else {
+				salida = intHora.toString() + "hs";
+			}
+		} else {
+			salida = intHora.toString() + "h" + decHora.toString() + "m";
+		}
+		return salida;
 	}
 
 	public String getNombre() {
