@@ -92,7 +92,7 @@ public class PromocionesDAO {
 				atracciones.add(i);
 			}
 		}
-		return new PromocionPorcentual(resultados.getDouble(2), atracciones);
+		return new PromocionPorcentual(resultados.getDouble(2), atracciones, resultados.getString(4));
 	}
 
 	private static PromocionAxB toPromocionAxB(ResultSet resultados, List<Atraccion> listaAtracciones)
@@ -111,6 +111,6 @@ public class PromocionesDAO {
 				atraccionesBonificadas.add(i);
 			}
 		}
-		return new PromocionAxB(atraccionesPagas, atraccionesBonificadas);
+		return new PromocionAxB(atraccionesPagas, atraccionesBonificadas, resultados.getString(4));
 	}
 }

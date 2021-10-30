@@ -4,10 +4,12 @@ import java.util.List;
 
 public class PromocionAxB extends Promocion {
 	private List<Atraccion> atraccionesBonificadas;
+	private String nombre;
 
-	public PromocionAxB(List<Atraccion> atracciones, List<Atraccion> atraccionesBonificadas) {
+	public PromocionAxB(List<Atraccion> atracciones, List<Atraccion> atraccionesBonificadas, String nombre) {
 		super(atracciones);
 		this.atraccionesBonificadas = atraccionesBonificadas;
+		this.nombre = nombre;
 	}
 
 	public TipoAtraccion getTipoAtraccion() {
@@ -16,12 +18,11 @@ public class PromocionAxB extends Promocion {
 
 	public double getCostoDeVisita() {
 		double costoDeVisita = 0;
-		for (int i = 0; i < atraccionesEnPromo.size(); i++) {
-			if (!atraccionesBonificadas.contains(atraccionesEnPromo.get(i))) {
-				costoDeVisita += atraccionesEnPromo.get(i).getCostoDeVisita();
-			}
+		for (Atraccion atrac : atraccionesEnPromo) {
+//			if (!atraccionesBonificadas.contains(atrac)) {
+			costoDeVisita += atrac.getCostoDeVisita();
+//			}
 		}
-		;
 		return costoDeVisita;
 	}
 
@@ -32,28 +33,14 @@ public class PromocionAxB extends Promocion {
 
 	@Override
 	public String toString() {
-		// genera el numero de promo
-		double numeroPromo = this.getTiempoPromedioDeVisita() * 13; // Promo Absoluta
-		switch (this.getTipoDeAtraccion()) {
-		case AVENTURA:
-			numeroPromo *= 5;
-			break;
-		case DEGUSTACION:
-			numeroPromo *= 7;
-			break;
-		case PAISAJE:
-			numeroPromo *= 11;
-			break;
-		default:
-			break;
-		}
+		Integer costoMonedas = (int) this.getCostoDeVisita();
+		String frase2 = String.format("%1$" + 2 + "s", costoMonedas.toString());
 
-		// frase a imprimir
-		int numPromoInt = (int) numeroPromo;
-		String numeroPromoTxt = String.format("%04d", numPromoInt);
-		int numCosto = (int) this.getCostoDeVisita();
-		return "\n Promo" + numeroPromoTxt + " ==  Precio Promocional " + numCosto + " monedas  ==  Incluye:  "
-				+ atraccionesEnPromo + "   ===   Y SIN CARGO!!    ESTA ATRACCION PARA QUE DISFRUTE AL MAXIMO!   ===   "
-				+ atraccionesBonificadas;
+		return "\n Promo \"" + this.nombre + "\"  << Precio Promocional " + frase2 +" "+ this.getCostoDeVisita() + " monedas >>   Incluye  "
+				+ atraccionesEnPromo + "\n Y SIN CARGO!!    Esta atracción para que disfrute al máximo:   " 
+				+ atraccionesBonificadas + "\n";
+
+//		return "\n Promo" + numeroPromoTxt + " ==  Precio Promocional " + numCosto + " monedas  ==  Incluye:  "
+//				+ atraccionesEnPromo + "\n\";
 	}
 }

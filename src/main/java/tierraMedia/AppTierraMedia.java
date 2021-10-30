@@ -47,7 +47,7 @@ public class AppTierraMedia {
 
 		for (Usuario cliente : usuarios) {
 			if (iniciando) {
-				System.out.print("\n\n\n\n  ==       BUENOS  DIAS!!       ==       ");
+				System.out.print("\n\n       ==          BUENOS  DIAS!!          ==\n\n");
 				iniciando = !iniciando;
 			} else {
 				System.out.print("\n\n\n\n  == Presiona una tecla para continuar ==       ");
@@ -59,12 +59,11 @@ public class AppTierraMedia {
 			for (int j = 0; j < productos.size(); j++) {
 				Producto producto = productos.get(j);
 				if (esPrimeraOpcion(producto, cliente)) {
-					System.out.println("Desea adquirir " + producto.toString() + "?");
+					System.out.println("Desea adquirir...?" + producto.toString());
 					System.out.println("Pulse S para si, N para no.");
 					String respuesta = sc.nextLine();
 					while (!esRespuestaAceptable(respuesta)) {
-						System.out.println(
-								"\n\nNo ha ingresado una respuesta procesable.\nRecuerde S para Si, N para no.");
+						System.out.println("Por favor, sólo presione S para Si, N para no.");
 						respuesta = sc.nextLine();
 					}
 					if (respuesta.toUpperCase().equals("S")) {
@@ -83,8 +82,7 @@ public class AppTierraMedia {
 							+ "\nSabemos que no es de su preferencia.\nPulse S para si, N para no.");
 					String respuesta = sc.nextLine();
 					while (!esRespuestaAceptable(respuesta)) {
-						System.out
-								.println("No ha ingresado una respuesta procesable.\n Recuerde S para Si, N para no.");
+						System.out.println("Por favor, sólo presione S para Si, N para no.");
 						respuesta = sc.nextLine();
 					}
 					if (respuesta.toUpperCase().equals("S")) {

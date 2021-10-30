@@ -33,24 +33,11 @@ public class Atraccion implements Producto {
 
 	@Override
 	public String toString() {
-//		int largoNombre = this.nombre.length();
-//		int largoAtracc = this.getTipoDeAtraccion().name().length();
-//		int guiones = (80 - largoAtracc - largoNombre - 8) / 2;
-//		;
-//		for (int i = 0; i < guiones; i++)
-//			respuesta += "=";
-//		respuesta += "  " + this.nombre + " (" + this.tipoDeAtraccion + ")  ";
-//		for (int i = 0; i < guiones; i++)
-//			respuesta += "=";
-//		respuesta += "\n  Precio lista: " + (int) this.costoDeVisita + " monedas. " + "--  Tiempo prom. de Visita : "
-//				+ this.tiempoPromedioDeVisita + " hora";
-//		if (this.tiempoPromedioDeVisita > 1)
-//			respuesta += "s";
-//		respuesta += ".\n";
-
 		Integer costoMonedas = (int) this.costoDeVisita;
-		return "\n   == " + this.nombre + " (" + costoMonedas + " monedas // Dur. aprox.: "
-				+ tiempoAstring(this.tiempoPromedioDeVisita) + ") == ";
+		String frase1 = String.format("%1$" + 18 + "s", this.nombre);
+		String frase2 = String.format("%1$" + 2 + "s", costoMonedas.toString());
+		return "\n       ==> " + frase1 + "  (" + frase2 + " monedas  //  Dur. aprox.: "
+				+ tiempoAstring(this.tiempoPromedioDeVisita) + ")";
 	}
 
 	private String tiempoAstring(double horas) {

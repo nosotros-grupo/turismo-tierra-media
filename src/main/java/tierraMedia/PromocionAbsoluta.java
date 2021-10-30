@@ -25,28 +25,10 @@ public class PromocionAbsoluta extends Promocion {
 
 	@Override
 	public String toString() {
-//		// genera el numero de promo
-//		double numeroPromo = this.getTiempoPromedioDeVisita() * 21; // Promo Absoluta
-//		switch (this.getTipoDeAtraccion()) {
-//		case AVENTURA:
-//			numeroPromo *= 5;
-//			break;
-//		case DEGUSTACION:
-//			numeroPromo *= 7;
-//			break;
-//		case PAISAJE:
-//			numeroPromo *= 11;
-//			break;
-//		default:
-//			break;
-//		}
-//		
-//		// frase a imprimir
-//		int numPromo = (int) numeroPromo;
-//		String numeroPromoTxt = String.format("%04d", numPromo);
-//		return "\n   Promo" + numeroPromoTxt + " ==  Precio Promocional " 
-//				+ this.precioFinal + " monedas  ==  Incluye:  " + atraccionesEnPromo;
-		return "\n Promo \"" + this.nombre + "\" == Precio Promocional " + this.precioFinal + " monedas == Incluye: "
-				+ atraccionesEnPromo;
+		Integer costoMonedas = (int) this.precioFinal;
+		String frase2 = String.format("%1$" + 2 + "s", costoMonedas.toString());
+		
+		return "\n Promo \"" + this.nombre + "\"  << Precio Promocional " 
+			+ frase2 + " monedas >>   Incluye  "+ atraccionesEnPromo + "\n";
 	}
 }
