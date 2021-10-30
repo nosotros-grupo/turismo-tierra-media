@@ -16,6 +16,18 @@ public class PromocionAxB extends Promocion {
 		return atraccionesEnPromo.get(0).getTipoDeAtraccion();
 	}
 
+	@Override
+	public double getTiempoPromedioDeVisita() {
+		double tiempoPromedioDeVisita = 0;
+		for (Atraccion atrac : this.atraccionesEnPromo) {
+			tiempoPromedioDeVisita += atrac.getTiempoPromedioDeVisita();
+		}
+		for (Atraccion atrac : this.atraccionesBonificadas) {
+			tiempoPromedioDeVisita += atrac.getTiempoPromedioDeVisita();
+		}
+		return tiempoPromedioDeVisita;
+	}
+
 	public double getCostoDeVisita() {
 		double costoDeVisita = 0;
 		for (Atraccion atrac : atraccionesEnPromo) {
@@ -36,7 +48,7 @@ public class PromocionAxB extends Promocion {
 		Integer costoMonedas = (int) this.getCostoDeVisita();
 		String frase2 = String.format("%1$" + 2 + "s", costoMonedas.toString());
 
-		return "\n Promo \"" + this.nombre + "\"  << Precio Promocional " + frase2 +" "+ this.getCostoDeVisita() + " monedas >>   Incluye  "
+		return "\n Promo \"" + this.nombre + "\"  << Precio Promocional " + frase2 +" " + " monedas >>   Incluye  "
 				+ atraccionesEnPromo + "\n Y SIN CARGO!!    Esta atracción para que disfrute al máximo:   " 
 				+ atraccionesBonificadas + "\n";
 

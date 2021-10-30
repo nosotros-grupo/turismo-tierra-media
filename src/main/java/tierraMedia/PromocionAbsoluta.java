@@ -5,6 +5,7 @@ import java.util.List;
 public class PromocionAbsoluta extends Promocion {
 
 	private double precioFinal;
+	private double tiempoVisita;
 	private String nombre;
 
 	public PromocionAbsoluta(double precio, List<Atraccion> atracciones, String nombre) {
@@ -19,7 +20,6 @@ public class PromocionAbsoluta extends Promocion {
 
 	@Override
 	public boolean contiene(Producto p) {
-		// TODO Auto-generated method stub
 		return false;
 	}
 

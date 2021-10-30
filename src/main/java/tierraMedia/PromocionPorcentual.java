@@ -12,15 +12,6 @@ public class PromocionPorcentual extends Promocion {
 		this.nombre = nombre;
 	}
 
-	@Override
-	public String toString() {
-		Integer descuentoInt = (int) this.descuento;
-		String frase2 = String.format("%1$" + 2 + "s", descuentoInt.toString());
-
-		return "\n Promo \"" + this.nombre + "\"  << Precio Promocional " + frase2 + " monedas (" + descuentoInt
-				+ "% de descuento)  >>   Incluye  " + atraccionesEnPromo;
-	}
-
 	public PromocionPorcentual(double descuento, Atraccion a1, Atraccion a2) {
 		super();
 		this.atraccionesEnPromo.add(a1);
@@ -47,6 +38,16 @@ public class PromocionPorcentual extends Promocion {
 	@Override
 	public boolean contiene(Producto p) {
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		Integer descuentoInt = (int) this.descuento;
+		Integer costoInt = (int) this.getCostoDeVisita();
+		String frase2 = String.format("%1$" + 2 + "s", costoInt.toString());
+
+		return "\n Promo \"" + this.nombre + "\"  << Precio Promocional " + frase2 + " monedas (" + descuentoInt
+				+ "% de descuento)  >>   Incluye  " + atraccionesEnPromo;
 	}
 
 }

@@ -33,11 +33,21 @@ public class Atraccion implements Producto {
 
 	@Override
 	public String toString() {
+		String frase1 = this.stringNombreYcostoYduracion();
+		return "\n       ==> " + frase1;
+	}
+
+	public String stringNombreYcostoYduracion() {
 		Integer costoMonedas = (int) this.costoDeVisita;
 		String frase1 = String.format("%1$" + 18 + "s", this.nombre);
 		String frase2 = String.format("%1$" + 2 + "s", costoMonedas.toString());
-		return "\n       ==> " + frase1 + "  (" + frase2 + " monedas  //  Dur. aprox.: "
-				+ tiempoAstring(this.tiempoPromedioDeVisita) + ")";
+		return frase1 + "  (" + frase2 + " monedas  //  Dur. aprox.: " + tiempoAstring(this.tiempoPromedioDeVisita)
+				+ ")";
+	}
+
+	public String stringNombreYduracion() {
+		String frase1 = String.format("%1$" + 18 + "s", this.nombre);
+		return frase1 + "  (Dur. aprox.: " + tiempoAstring(this.tiempoPromedioDeVisita) + ")";
 	}
 
 	private String tiempoAstring(double horas) {

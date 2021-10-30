@@ -1,7 +1,7 @@
 package tierraMedia;
 
-import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 
 /**
  * @author nosotros.grupo
@@ -48,41 +48,54 @@ public class Usuario {
 		return tipoPreferidoDeAtraccion;
 	}
 
+	/**
+	 * @param producto Descuenta el monto del producto al presupuesto - Descuenta el
+	 *                 tiempo que le ocupa el producto
+	 */
 	public void compra(Producto producto) {
 		this.presupuesto -= producto.getCostoDeVisita();
 		this.tiempoDisponible -= producto.getTiempoPromedioDeVisita();
 		producto.disminuirCupo();
-		for (int i = 0; i < producto.getListaDeAtracciones().size(); i++) {
-			this.itinerario.add(producto.getListaDeAtracciones().get(i));
+		for (Atraccion atrac : producto.getListaDeAtracciones()) {
+			this.itinerario.add(atrac);
 		}
 	}
 
 	public int getCostoTotalDeVisita() {
 		int costo = 0;
-		for (int i = 0; i < itinerario.size(); i++) {
-			costo += itinerario.get(i).getCostoDeVisita();
+		for (Atraccion atrac : itinerario) {
+			costo += atrac.getCostoDeVisita();
 		}
 		return costo;
 	}
 
 	public double getTiempoTotalDeVisita() {
 		int tiempo = 0;
-		for (int i = 0; i < itinerario.size(); i++) {
-			tiempo += itinerario.get(i).getTiempoPromedioDeVisita();
+		for (Atraccion atrac : itinerario) {
+			tiempo += atrac.getTiempoPromedioDeVisita();
 		}
 		return tiempo;
 	}
 
-	public String[] getAtraccionesCompradas() {
-		String[] atraccionesCompradas = new String[itinerario.size()];
-		for (int i = 0; i < itinerario.size(); i++) {
-			atraccionesCompradas[i] = itinerario.get(i).getNombre();
+	public List<Atraccion> getAtraccionesCompradas() {
+		LinkedList<Atraccion> atraccionesCompradas = new LinkedList<Atraccion>();
+		for (Atraccion atrac : itinerario) {
+			atraccionesCompradas.add(atrac);
+		}
+		return atraccionesCompradas;
+	}
+
+	public String getStringAtraccionesCompradas() {
+		String atraccionesCompradas = "";
+		for (Atraccion atrac : itinerario) {
+			atraccionesCompradas += "     ==>" + atrac.stringNombreYduracion() + "\n";
 		}
 		return atraccionesCompradas;
 	}
 
 	public String getListaAtracciones() {
-		return Arrays.toString(getAtraccionesCompradas()).replace("]", "").replace("[", "");
+		return "";
+//		Arrays.toString(getAtraccionesCompradas()).replace("]", "").replace("[", "");
 	}
 
 	public LinkedList<Atraccion> getItinerario() {
