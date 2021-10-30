@@ -3,6 +3,16 @@ package tierraMedia;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @param nombre
+ * @param costoDeVisita
+ * @param tiempoPromedioDeVisita
+ * @param cupoDePersonasDiario
+ * @param tipoDeAtraccion
+ * @param id
+ * 
+ * @see getListaDeAtracciones
+ */
 public class Atraccion implements Producto {
 	private String nombre;
 	private int id;
@@ -23,23 +33,38 @@ public class Atraccion implements Producto {
 
 	@Override
 	public String toString() {
-		int largoNombre = this.nombre.length();
-		int largoAtracc = this.getTipoDeAtraccion().name().length();
-		int guiones = (80 - largoAtracc - largoNombre - 8) / 2;
+		String frase1 = this.stringNombreYcostoYduracion();
+		return "\n       ==> " + frase1;
+	}
 
-		String respuesta = "\n";
-		for (int i = 0; i < guiones; i++)
-			respuesta += "=";
-		respuesta += "  " + this.nombre + " (" + this.tipoDeAtraccion + ")  ";
-		for (int i = 0; i < guiones; i++)
-			respuesta += "=";
-		respuesta += "\n  Precio lista: " + (int) this.costoDeVisita + " monedas. " + "--  Tiempo prom. de Visita : "
-				+ this.tiempoPromedioDeVisita + " hora";
-		if (this.tiempoPromedioDeVisita > 1)
-			respuesta += "s";
-		respuesta += ".\n";
+	public String stringNombreYcostoYduracion() {
+		Integer costoMonedas = (int) this.costoDeVisita;
+		String frase1 = String.format("%1$" + 18 + "s", this.nombre);
+		String frase2 = String.format("%1$" + 2 + "s", costoMonedas.toString());
+		return frase1 + "  (" + frase2 + " monedas  //  Dur. aprox.: " + tiempoAstring(this.tiempoPromedioDeVisita)
+				+ ")";
+	}
 
-		return respuesta;
+	public String stringNombreYduracion() {
+		String frase1 = String.format("%1$" + 18 + "s", this.nombre);
+		return frase1 + "  (Dur. aprox.: " + tiempoAstring(this.tiempoPromedioDeVisita) + ")";
+	}
+
+	private String tiempoAstring(double horas) {
+		String salida = "";
+		Integer intHora = (int) horas;
+		double doubleDecHora = 60 * (10 * horas - 10 * intHora) / 10;
+		Integer decHora = (int) doubleDecHora;
+		if (decHora == 0) {
+			if (horas <= 1) {
+				salida = intHora.toString() + "h";
+			} else {
+				salida = intHora.toString() + "hs";
+			}
+		} else {
+			salida = intHora.toString() + "h" + decHora.toString() + "m";
+		}
+		return salida;
 	}
 
 	public String getNombre() {
@@ -59,7 +84,7 @@ public class Atraccion implements Producto {
 		atracciones.add(this);
 		return atracciones;
 	}
-	
+
 	public int getId() {
 		return this.id;
 	}
@@ -67,11 +92,11 @@ public class Atraccion implements Producto {
 	public double getTiempoPromedioDeVisita() {
 		return this.tiempoPromedioDeVisita;
 	}
-	
+
 	public void disminuirCupo() {
 		cupoDePersonasDiario -= 1;
 	}
-	
+
 	public int getCupoDePersonasDiario() {
 		return cupoDePersonasDiario;
 	}

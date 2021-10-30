@@ -41,6 +41,7 @@ public class LectorPromociones {
 		Promocion promocion = null;
 		String linea = sc.nextLine();
 		String datos[] = linea.split(",");
+		String nombrePromo = "";
 
 		if (datos[0].toUpperCase().equals("PROMOCIONABSOLUTA")) {
 			List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
@@ -51,7 +52,7 @@ public class LectorPromociones {
 					}
 				}
 			}
-			promocion = new PromocionAbsoluta(Integer.valueOf(datos[1]), atraccionesIncluidas);
+			promocion = new PromocionAbsoluta(Integer.valueOf(datos[1]), atraccionesIncluidas, nombrePromo);
 		} else {
 			if (datos[0].toUpperCase().equals("PROMOCIONAXB")) {
 				List<Atraccion> atraccionesTotales = new ArrayList<Atraccion>();
@@ -71,7 +72,7 @@ public class LectorPromociones {
 						}
 					}
 				}
-				promocion = new PromocionAxB(atraccionesTotales, atraccionesBonificadas);
+				promocion = new PromocionAxB(atraccionesTotales, atraccionesBonificadas, nombrePromo);
 			} else {
 				if (datos[0].toUpperCase().equals("PROMOCIONPORCENTUAL")) {
 					List<Atraccion> atraccionesIncluidas = new ArrayList<Atraccion>();
@@ -95,7 +96,7 @@ public class LectorPromociones {
 						}
 					}
 					int descuento = Integer.valueOf(datos[1]);
-					promocion = new PromocionPorcentual(descuento, atraccionesIncluidas);
+					promocion = new PromocionPorcentual(descuento, atraccionesIncluidas, nombrePromo);
 				} else {
 					System.out.println(datos[0] + " no es un tipo de promocion válida");
 

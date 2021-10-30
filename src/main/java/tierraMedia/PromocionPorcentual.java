@@ -4,37 +4,12 @@ import java.util.List;
 
 public class PromocionPorcentual extends Promocion {
 	private double descuento;
+	private String nombre;
 
-	public PromocionPorcentual(double descuento, List<Atraccion> atracciones) {
+	public PromocionPorcentual(double descuento, List<Atraccion> atracciones, String nombre) {
 		super(atracciones);
 		this.descuento = descuento;
-	}
-
-	@Override
-	public String toString() {
-
-		// genera el numero de promo
-		double numeroPromo = this.getTiempoPromedioDeVisita() * 17; // Promo Porcentual
-		switch (this.getTipoDeAtraccion()) {
-		case AVENTURA:
-			numeroPromo *= 5;
-			break;
-		case DEGUSTACION:
-			numeroPromo *= 7;
-			break;
-		case PAISAJE:
-			numeroPromo *= 11;
-			break;
-		default:
-			break;
-		}
-		int numPromo = (int) numeroPromo;
-		
-		// frase a imprimir
-		String numeroPromoTxt = String.format("%04d", numPromo);
-		int descuentoInt = (int) this.descuento;
-		return "\n Promo" + numeroPromoTxt + " ==  Precio Promocional " + this.getCostoDeVisita()
-				+ " monedas (" + descuentoInt + "% de descuento)  ==  Incluye:  " + atraccionesEnPromo;
+		this.nombre = nombre;
 	}
 
 	public PromocionPorcentual(double descuento, Atraccion a1, Atraccion a2) {
@@ -63,6 +38,16 @@ public class PromocionPorcentual extends Promocion {
 	@Override
 	public boolean contiene(Producto p) {
 		return false;
+	}
+
+	@Override
+	public String toString() {
+		Integer descuentoInt = (int) this.descuento;
+		Integer costoInt = (int) this.getCostoDeVisita();
+		String frase2 = String.format("%1$" + 2 + "s", costoInt.toString());
+
+		return "\n Promo \"" + this.nombre + "\"  << Precio Promocional " + frase2 + " monedas (" + descuentoInt
+				+ "% de descuento)  >>   Incluye  " + atraccionesEnPromo;
 	}
 
 }

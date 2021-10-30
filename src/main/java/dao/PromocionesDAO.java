@@ -15,29 +15,55 @@ import tierraMedia.PromocionAbsoluta;
 import tierraMedia.PromocionAxB;
 import tierraMedia.PromocionPorcentual;
 
+/**
+ * ultima revision 30-10-21
+ */
 public class PromocionesDAO {
 
 	public static LinkedList<Promocion> findAll(List<Atraccion> listaAtracciones) throws SQLException {
-		String sql = "SELECT * FROM promocionabsoluta";
+		// Lista de Promos
+		LinkedList<Promocion> promociones = new LinkedList<Promocion>();
+
+		// se conecta la BD
 		Connection conn = ConnectionProvider.getConnection();
+
+		// se recuperan las promociones absolutas desde la BD
+		String sql = "SELECT * FROM promocionabsoluta";
 		PreparedStatement statement = conn.prepareStatement(sql);
 		ResultSet resultados = statement.executeQuery();
 
-		LinkedList<Promocion> promociones = new LinkedList<Promocion>();
+		// se agregan las promociones absolutas al listado de promociones
 		while (resultados.next()) {
-			promociones.add(toPromocionAbsoluta(resultados, listaAtracciones));
+			Promocion promoTemp = toPromocionAbsoluta(resultados, listaAtracciones);
+			promociones.add(promoTemp);
+
+			Gl.promoMap.put(resultados.getInt(3), promoTemp);
 		}
+
+		// se recuperan las promociones porcentuales desde la BD
 		sql = "SELECT * FROM promocionporcentual";
 		statement = conn.prepareStatement(sql);
 		resultados = statement.executeQuery();
+
+		// se agregan las promociones porcentuales al listado de promociones
 		while (resultados.next()) {
-			promociones.add(toPromocionPorcentual(resultados, listaAtracciones));
+			Promocion promoTemp = toPromocionPorcentual(resultados, listaAtracciones);
+			promociones.add(promoTemp);
+
+			Gl.promoMap.put(resultados.getInt(3), promoTemp);
 		}
+
+		// se recuperan las promociones AxB desde la BD
 		sql = "SELECT * FROM promocionaxb";
 		statement = conn.prepareStatement(sql);
 		resultados = statement.executeQuery();
+
+		// se agregan las promociones AxB al listado de promociones
 		while (resultados.next()) {
-			promociones.add(toPromocionAxB(resultados, listaAtracciones));
+			Promocion promoTemp = toPromocionAxB(resultados, listaAtracciones);
+			promociones.add(promoTemp);
+
+			Gl.promoMap.put(resultados.getInt(3), promoTemp);
 		}
 		conn.close();
 		return promociones;
@@ -46,6 +72,7 @@ public class PromocionesDAO {
 
 	private static PromocionAbsoluta toPromocionAbsoluta(ResultSet resultados, List<Atraccion> listaAtracciones)
 			throws SQLException {
+
 		ArrayList<Atraccion> atracciones = new ArrayList<Atraccion>();
 		String atraccionesAsString = resultados.getString(2);
 		for (Atraccion i : listaAtracciones) {
@@ -53,7 +80,7 @@ public class PromocionesDAO {
 				atracciones.add(i);
 			}
 		}
-		return new PromocionAbsoluta(resultados.getInt(1), atracciones);
+		return new PromocionAbsoluta(resultados.getInt(1), atracciones, resultados.getString(4));
 	}
 
 	private static PromocionPorcentual toPromocionPorcentual(ResultSet resultados, List<Atraccion> listaAtracciones)
@@ -65,7 +92,7 @@ public class PromocionesDAO {
 				atracciones.add(i);
 			}
 		}
-		return new PromocionPorcentual(resultados.getDouble(2), atracciones);
+		return new PromocionPorcentual(resultados.getDouble(2), atracciones, resultados.getString(4));
 	}
 
 	private static PromocionAxB toPromocionAxB(ResultSet resultados, List<Atraccion> listaAtracciones)
@@ -84,6 +111,6 @@ public class PromocionesDAO {
 				atraccionesBonificadas.add(i);
 			}
 		}
-		return new PromocionAxB(atraccionesPagas, atraccionesBonificadas);
+		return new PromocionAxB(atraccionesPagas, atraccionesBonificadas, resultados.getString(4));
 	}
 }
